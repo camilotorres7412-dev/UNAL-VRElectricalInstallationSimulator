@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using Unity.Mathematics;
 using UnityEditor.UI;
 using UnityEngine;
@@ -9,21 +10,20 @@ public class ButtonExit : MonoBehaviour
     // Store activation status
     private bool isActivated = false;
 
-    // Store current value
-    static float t = 0f;
-
-    private float ypos;
+    // Store fade to black renderer
+    private Material matFade;
 
     void Start()
     {
-        ypos = transform.position.y;
+        // Find and store black quad material for fadeout
+        GameObject fadePlane = GameObject.Find("FadePlane");
+
+        matFade = fadePlane.GetComponent<Renderer>().material;
     }
 
-    // Called when activated by the player
+    // Called when activated by the player, initiates fade and closes app
     public void OnPress()
     {
-        Debug.Log("Pressed!");
-        // Initiate press animation
         isActivated = true;
     }
 
@@ -31,11 +31,15 @@ public class ButtonExit : MonoBehaviour
     {
         if(isActivated)
         {
-        // Maximum y movement visually determined in editor
-        transform.position = new Vector3(transform.position.x, ypos - (-Mathf.Abs(Time.deltaTime - 0.15f) + 0.15f), transform.position.z);
+            // Get the current color and add to the color's alpha until fully opaque (Alpha = 1.0f)
+            Color color = matFade.color;
 
-            // Trigger once the button has finished pressing
-            if (t > 1.0f)
+            color.a += 0.05f; 
+
+            matFade.color = color;
+
+            // Quit the application after full fadeout
+            if (color.a > 1f)
             {
                 // Quits the application when in build
                 Application.Quit();

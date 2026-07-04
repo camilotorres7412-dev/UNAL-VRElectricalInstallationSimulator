@@ -6,8 +6,16 @@ public class ButtonRestart : MonoBehaviour
     // store activation status
     private bool isActivated = false;
 
-    // store current value
-    static float t = 0;
+    // Store fade to black renderer
+    private Material matFade;
+
+    void Start()
+    {
+        // Find and store black quad color for fadeout
+        GameObject fadePlane = GameObject.Find("FadePlane");
+
+        matFade = fadePlane.GetComponent<Renderer>().material;
+    }
 
     // Called when activated by the player
     public void OnPress()
@@ -20,18 +28,19 @@ public class ButtonRestart : MonoBehaviour
     {
         if(isActivated)
         {
-        // Maximum y movement visually determined in editor
-        transform.position = new Vector3(0, Mathf.Lerp(0, -0.045f, t), 0);
+            // Get the current color and add to the color's alpha until fully opaque (Alpha = 1.0f)
+            Color color = matFade.color;
 
-        // Increase t based on time
-        t += 0.5f * Time.deltaTime;
+            color.a += 0.05f; 
 
-        // Trigger once the button has finished pressing
-        if (t > 1.0f)
-        {
-            // Get build index and reload
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+            matFade.color = color;
+
+            // Quit the application after full fadeout
+            if (color.a > 1f)
+            {
+                // Get build index and reload
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
     }
 }

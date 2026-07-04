@@ -99,7 +99,7 @@ public class FixturePlacer : MonoBehaviour
             {
                 textObject = new GameObject("HeightIndicator");
 
-                // Text spawns with flipped alignment, so the minus fixes it
+                // Text spawns with flipped alignment for some reason, so the minus fixes it
                 textObject.transform.LookAt(-hit.normal);
 
                 heightIndicator = textObject.AddComponent<TextMeshPro>();
