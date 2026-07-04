@@ -17,65 +17,62 @@ public class TapeScript : MonoBehaviour
     private TextMeshPro tapeObject;
     private LineRenderer lineRenderer;
 
+    // Get notepad text component
+    private TextMeshPro notepadText;
+
     // Logic variables
     private bool tapeSelected = false;
+
+    // Store String with height value
+    private string height = "";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Filter selection of non-fixture objects
-        layerMask = LayerMask.GetMask("Fixture");
-
         // Add a LineRenderer component
-        LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
 
         // Set the material
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
 
         // Set the color
+        lineRenderer.startColor = Color.red;
         lineRenderer.endColor = Color.red;
 
         // Set the width
-        lineRenderer.startWidth = 0.2f;
-        lineRenderer.endWidth = 0.2f;
+        lineRenderer.startWidth = 0.01f;
+        lineRenderer.endWidth = 0.01f;
 
         // Set the number of vertices
         lineRenderer.positionCount = 2;
 
-        // Create TMP object which indicates the object being pointed at
-        textObject = new GameObject("Tape Selector");
+        // Get the display text gameobject
+        textObject = transform.GetChild(4).gameObject;
 
-        // Text spawns with flipped alignment, so the minus fixes it
-        // Uncomment or remove
-        // textObject.transform.LookAt(-hit.normal);
+        // Get the tape's text mesh pro component
+        tapeObject = textObject.GetComponent<TextMeshPro>();
 
-        tapeObject = textObject.AddComponent<TextMeshPro>();
-
-        tapeObject.text = "";
-        tapeObject.fontSize = 2;
-        tapeObject.color = Color.white;
-        tapeObject.alignment = TextAlignmentOptions.Left;
+        notepadText = GameObject.FindWithTag("NotepadText").GetComponent<TextMeshPro>();
     }
 
     // Method called upon pickup, generates a guiding raycast from the tape and names selected object
     public void TapeSelected()
     {
         tapeSelected = true;
+        lineRenderer.enabled = true;
     }
 
     // Method called upon drop, disables guiding raycast
     public void TapeUnselected()
     {
         tapeSelected = false;
+        lineRenderer.enabled = false;
     }
 
-    // Method called continously during trigger pull, stores the object that is selected by the raycast
+    // Method called one upon trigger pull, transfers height string into notepad
     public void TapeActivated()
     {
-        // Create raycast for object selection and obtaining height, filter based on Fixture mask
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
-        {
-        }
+        notepadText.text += "\n" + height;
     }
 
     // Update is called once per frame
@@ -89,22 +86,32 @@ public class TapeScript : MonoBehaviour
 
         // Cleanup: Update the following logic to do the assignments only once?
 
-        // Create raycast for object selection text indicator and change guiding ray color, filter based on Fixture mask
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        // Create raycast for object selection text indicator and change guiding ray color
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10f))
             {
-                // Update the color of the guiding raycast while a valid object is hit
-                lineRenderer.endColor = Color.green;
+                // Check if the hit object is a fixture
+                if (hit.transform.CompareTag("Fixture"))
+                {
+                    // Update the color of the guiding raycast while a valid object is hit
+                    lineRenderer.startColor = Color.green;
+                    lineRenderer.endColor = Color.green;
 
-                // Update position of the Text object, inherited from the base object
-                tapeObject.transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z + 0.1f);
+                    // Calculate height of hit gameObject, approximate to 2 decimal units and add unit indicator
+                    height = "Altura " + hit.collider.gameObject.name + " :" + hit.collider.gameObject.transform.position.y.ToString("0.00") + "m";
 
-                // Update content of the Text object
-                tapeObject.text = hit.collider.gameObject.name;
+                    // Update content of the Text object
+                    tapeObject.text = height;
+                }
+                
+                else
+                {
+                    // Reset guiding raycast color and text when no valid object is found
+                    lineRenderer.startColor = Color.red;
+                    lineRenderer.endColor = Color.red;
+                    height = "";
+                    tapeObject.text = height;
+                }
             }
-
-        // Reset guiding raycast color and text when no valid object is found
-        lineRenderer.endColor = Color.red;
-        tapeObject.text = "";
         }
     }
 }

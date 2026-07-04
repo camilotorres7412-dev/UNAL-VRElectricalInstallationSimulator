@@ -1,5 +1,3 @@
-using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -11,26 +9,20 @@ public class AnchorMagnet : MonoBehaviour
 {
     private bool enableUpdate = false;
 
-    // Store the fixture which touched the anchor collider
+    // Store incoming fixture which touched the sphere collider
     private GameObject incomingFixture;
 
     // Store slerp scalar
     private float slerpX = 0f;
 
-    Mesh anchorMesh;
-    Mesh localMesh;
+    // Store meshes for comparison to avoid unwanted objects from anchoring
+    private Mesh anchorMesh;
+    private Mesh localMesh;
+
 
     // Method called by the wall anchor when a fixture enters its collider
     private void OnTriggerEnter(Collider other)
     {
-
-        // Check if the entering collider's GameObject has the specified ignoreTag
-        if (other.CompareTag("Player"))
-        {
-            // If the tag matches, return immediately to ignore the trigger event
-            return;
-        }
-
         // Get the game object of the incoming fixture and its mesh filter for comparison
         incomingFixture = other.gameObject;
 
@@ -44,20 +36,20 @@ public class AnchorMagnet : MonoBehaviour
         if (anchorMesh == localMesh)
         {
             // Disable wireframe clone rendering
-            GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
 
             foreach (Renderer r in GetComponentsInChildren<MeshRenderer>())
             {
                 r.enabled = false;
             }
 
-            // Disable collider
-            GetComponent<SphereCollider>().enabled = false;
+            // Disable wireframe clone collider
+            gameObject.GetComponent<SphereCollider>().enabled = false;
 
-            // Disable grab
+            // Disable held fixture grab
             incomingFixture.GetComponent<XRGrabInteractable>().enabled = false;
 
-            // Enable update calls
+            // Enable position updates every frame
             enableUpdate = true;
         }
     }
@@ -86,8 +78,8 @@ public class AnchorMagnet : MonoBehaviour
                     triggerable.OnPlaced();
                 }
 
-                // Disable update calls
-                enableUpdate = false;
+                // Destroy anchor object
+                Destroy(gameObject);
             }
         }
     }

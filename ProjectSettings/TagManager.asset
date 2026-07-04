@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Anchor
+  - PlayerTag
+  - RightHandInteractor
+  - LeftHandInteractor
+  - Fixture
+  - NotepadText
   layers:
   - Default
   - TransparentFX
@@ -14,7 +19,7 @@ TagManager:
   - UI
   - Wireable
   - Fixture
-  - 
+  - AlwaysOnTop
   - 
   - 
   - 

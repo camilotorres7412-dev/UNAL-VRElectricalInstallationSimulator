@@ -16,12 +16,6 @@ public class BookScript : MonoBehaviour
     {
         // Get the book cover transform by child index (1)
         child = transform.GetChild(1);
-
-        // Get current rotation (at some point of open at this point)
-        start = child.transform.localRotation;
-
-        // Return y axis rotation to zero
-        end = Quaternion.Euler(new Vector3(0, 0, 90));
     }
 
     // Method called upon pickup, flips the book open
@@ -39,6 +33,12 @@ public class BookScript : MonoBehaviour
     // Method called upon drop, closes the book
     public void BookUnselected()
     {
+        // Get current rotation (open to some degree at this point)
+        start = Quaternion.Euler(child.transform.localEulerAngles);
+
+        // 
+        end = child.rotation * Quaternion.Euler(0, 0, 0);
+
         bookSelected = false;
     }
 
