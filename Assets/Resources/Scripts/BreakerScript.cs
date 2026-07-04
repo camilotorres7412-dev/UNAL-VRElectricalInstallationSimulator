@@ -25,7 +25,7 @@ public class BreakerScript : MonoBehaviour
     }
 
     // Method associated to XR Simple Interactable - On Select, initiates rotation animation
-    private void OnRaycastSelect()
+    public void OnSelect()
     {
         if (activated == false)
         {

@@ -152,7 +152,7 @@ public class HammerScript : MonoBehaviour
                 objRotation = Quaternion.LookRotation(hit.normal, Vector3.up);
 
                 // Get object's "identifier" field to create wireframe clone mesh. Mind exact name matching!
-                GameObject objPrefab = Resources.Load<GameObject>("Blueprints/" + fixtureAttributes.identifier);
+                GameObject objPrefab = Resources.Load<GameObject>("Prefabs/Blueprints/" + fixtureAttributes.identifier);
 
                 // Instantiate new wireframe clone from identified mesh with special visuals.
                 wireframeClone = Instantiate(objPrefab, hit.point, objRotation);

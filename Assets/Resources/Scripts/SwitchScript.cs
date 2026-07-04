@@ -37,14 +37,14 @@ public class SwitchScript : MonoBehaviour
     }
 
     // Method associated to XR Simple Interactable - On Select, initiates rotation animation
-    private void OnRaycastSelect()
+    public void OnSelect()
     {
         if (activated == false)
         {
             activated = true;
 
             // Rotation towards "on" state
-            Quaternion targetRotation = Quaternion.Euler(90f, -135f, 0f);
+            Quaternion targetRotation = Quaternion.Euler(4f, 0f, 0f);
 
             TriggerSlerpAnimation(targetRotation);
         }
@@ -54,7 +54,7 @@ public class SwitchScript : MonoBehaviour
             activated = false;
 
             // Rotation towards "off" state
-            Quaternion targetRotation = Quaternion.Euler(90f, 0f, 0f);
+            Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
 
             TriggerSlerpAnimation(targetRotation);
 
@@ -90,10 +90,21 @@ public class SwitchScript : MonoBehaviour
             yield return null;
         }
 
-        // Alternate power states
-        if (activated) {GetComponent<ElectricalAttributes>().powered = true;}
+        // Check if input wire is powered then power, otherwise keep unpowered
+        if (activated)
+        {
+            GameObject inputFixture = GetComponent<ElectricalAttributes>().wireIn;
 
-        else {GetComponent<ElectricalAttributes>().powered = false;}
+            if (inputFixture.GetComponent<ElectricalAttributes>().powered == true)
+            {
+                GetComponent<ElectricalAttributes>().powered = true;
+            }
+        }
+
+        else 
+        {
+            GetComponent<ElectricalAttributes>().powered = false;
+        }
 
         // Ensure we hit the exact target rotation at the end
         poleTransform.localRotation = targetRotation;

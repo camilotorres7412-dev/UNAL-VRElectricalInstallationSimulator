@@ -20,8 +20,7 @@ public class LightBulbScript : MonoBehaviour
     // Method called as soon as anchoring process is finished
     public void UpdateLightbulbComponents()
     {
-        // Disable Rigidbody physics, grab interactions and collider
-        GetComponent<BoxCollider>().enabled = false;
+        // Disable Rigidbody physics, grab interactions
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<XRGrabInteractable>().enabled = false;
 

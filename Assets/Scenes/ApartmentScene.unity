@@ -1742,9 +1742,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a00c312ce046c49a162fd587586071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BagButtons
-  breakerBox: {fileID: 5338659790015473137, guid: 73ed3f2de88b6664f9ac582bb82e4287, type: 3}
+  breakerBox: {fileID: 6702116324295408092, guid: eeeb64c3153012e41ad5bb58f62dcf8f, type: 3}
   powerSocket: {fileID: 1675132188184649106, guid: 921b03134c1626e4fa20b630ee258eb2, type: 3}
-  breakerSwitch: {fileID: 753197848961573132, guid: 048020e0d121fa94599546f943a48f35, type: 3}
+  breakerSwitch: {fileID: 7643696640484609742, guid: 048020e0d121fa94599546f943a48f35, type: 3}
   lightbulb: {fileID: 4790618376553776856, guid: 560c3e38a8bd037468fc88e111eab289, type: 3}
   powerSwitch: {fileID: 8640123758831675166, guid: 3917df6a8622b914ab4f4f771275f580, type: 3}
 --- !u!1 &390718604
@@ -2160,15 +2160,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1883230248363655243, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074471628601745017, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 2147483745
       objectReference: {fileID: 0}
     - target: {fileID: 3980547573437802291, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4053579577978487484, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_PhysicsLayerMask.m_Bits
+      value: 65
+      objectReference: {fileID: 0}
     - target: {fileID: 5033801203051696737, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5456733348963664102, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 2147483745
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436123941575367715, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_PhysicsLayerMask.m_Bits
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 8748500131873809389, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_TagString
@@ -2176,7 +2192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8877177980677234388, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

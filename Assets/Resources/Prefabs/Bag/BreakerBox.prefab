@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 7a579c865b8207747bb59f74958a1984, type: 2}
+    - target: {fileID: -5102400338957986524, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4324aab071eadb44e93356137cac1f8d, type: 2}
     - target: {fileID: 919132149155446097, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       propertyPath: m_Name
       value: BreakerBox
@@ -152,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2bee402994c3a448523379f6c4a2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnchorMagnet
-  anchorID: Breaker1
+  anchorID: Breaker
 --- !u!1 &6702116324295408092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
@@ -366,7 +370,7 @@ MonoBehaviour:
   measureH: 0
   measureV: 1
   anchorID: BreakerBox
-  identifier: Breakers
+  identifier: BreakerBox
 --- !u!114 &8824536227081184214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,7 +450,19 @@ MonoBehaviour:
       m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3276968088077239902}
+        m_TargetAssemblyTypeName: BreakerBoxDoorlidScript, Assembly-CSharp
+        m_MethodName: OnSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_LastSelectExited:
     m_PersistentCalls:
       m_Calls: []

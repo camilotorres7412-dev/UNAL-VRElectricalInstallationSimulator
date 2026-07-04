@@ -21,33 +21,40 @@ public class AnchorMagnet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        incomingFixture = other.gameObject;
-
-        // Check if the object that touched has attributes
-        if (incomingFixture.GetComponent<ObjectAttributes>() != null)
+        if (other.transform.CompareTag("Fixture"))
         {
-
-            incomingAnchorID = incomingFixture.GetComponent<ObjectAttributes>().anchorID;
-
-            // Only anchor matching IDs
-            if (anchorID == incomingAnchorID)
+            incomingFixture = other.gameObject;
+            
+            // Check if the object that touched has attributes
+            if (incomingFixture.GetComponent<ObjectAttributes>() != null)
             {
-                // Disable wireframe clone rendering
-                gameObject.GetComponent<MeshRenderer>().enabled = false;
 
-                foreach (Renderer r in GetComponentsInChildren<MeshRenderer>())
+                incomingAnchorID = incomingFixture.GetComponent<ObjectAttributes>().anchorID;
+
+                // Only anchor matching IDs
+                if (anchorID == incomingAnchorID)
                 {
-                    r.enabled = false;
+                    // Disable wireframe clone rendering
+                    gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+                    foreach (Renderer r in GetComponentsInChildren<MeshRenderer>())
+                    {
+                        r.enabled = false;
+                    }
+
+                    // Disable wireframe clone collider
+                    gameObject.GetComponent<Collider>().enabled = false;
+
+                    // Disable held fixture grab
+                    incomingFixture.GetComponent<XRGrabInteractable>().enabled = false;
+
+                    // Bandaid fix for isKinematic
+                    // Maybe because of GrabInteractor shenanigans?
+                    incomingFixture.GetComponent<Rigidbody>().isKinematic = true;
+
+                    // Enable position updates every frame
+                    enableUpdate = true;
                 }
-
-                // Disable wireframe clone collider
-                gameObject.GetComponent<Collider>().enabled = false;
-
-                // Disable held fixture grab
-                incomingFixture.GetComponent<XRGrabInteractable>().enabled = false;
-
-                // Enable position updates every frame
-                enableUpdate = true;
             }
         }
     }
@@ -57,10 +64,6 @@ public class AnchorMagnet : MonoBehaviour
     {
         if (enableUpdate == true)
         {
-            // Bandaid fix for isKinematic
-            // Maybe because of GrabInteractor shenanigans?
-            incomingFixture.GetComponent<Rigidbody>().isKinematic = true;
-
             // Smoothly move and rotate into anchor position
             incomingFixture.transform.position = Vector3.Slerp(incomingFixture.transform.position, gameObject.transform.position, Mathf.Clamp(slerpX, 0, 1));
             incomingFixture.transform.rotation = Quaternion.Slerp(incomingFixture.gameObject.transform.rotation, gameObject.transform.rotation, Mathf.Clamp(slerpX, 0, 1));

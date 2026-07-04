@@ -12,8 +12,7 @@ public class CableSpoolTool : MonoBehaviour
     private RaycastHit hit;
 
     // Objects for selection indicator text
-    private GameObject textObject;
-    private TextMeshPro tapeObject;
+    private TextMeshPro textIndicator;
     private LineRenderer lineRenderer;
 
     // Logic variable for update call control
@@ -28,6 +27,8 @@ public class CableSpoolTool : MonoBehaviour
 
     // Store selection process status
     private int selectionStatus = 0;
+
+    private int layerMask;
 
     public void CreateLineRenderer()
     {
@@ -54,13 +55,12 @@ public class CableSpoolTool : MonoBehaviour
         CreateLineRenderer();
 
         // Get Grab Point for Raycast casting
-        grabPoint = gameObject.transform.GetChild(0);
+        grabPoint = gameObject.transform.GetChild(1);
 
         // Get the display text component
-        textObject = transform.GetChild(2).gameObject;
+        textIndicator = transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
 
-        // Get the tape's text mesh pro component
-        tapeObject = textObject.GetComponent<TextMeshPro>();
+        layerMask = LayerMask.GetMask("Wireable");
     }
 
     public void OnSelect()
@@ -79,7 +79,7 @@ public class CableSpoolTool : MonoBehaviour
     public void OnActivated()
     {
         // Cast selection ray
-        if (Physics.Raycast(grabPoint.position, grabPoint.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+        if (Physics.Raycast(grabPoint.position, grabPoint.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
             switch (selectionStatus)
             {
@@ -89,7 +89,8 @@ public class CableSpoolTool : MonoBehaviour
                     if (hit.collider.transform.CompareTag("Fixture"))
                     {
                         sourceObject = hit.collider.gameObject;
-                        lineRenderer.material.color = Color.yellow;
+                        lineRenderer.startColor = Color.yellow;
+                        lineRenderer.endColor = Color.yellow;
                         selectionStatus = 1;
                     }
 
@@ -124,8 +125,6 @@ public class CableSpoolTool : MonoBehaviour
                         // Cut power if false
                         targetAttributes.powered = false;
                     }
-
-                    lineRenderer.material.color = Color.red;
                     selectionStatus = 0;
                     break;
             }
@@ -141,27 +140,27 @@ public class CableSpoolTool : MonoBehaviour
         lineRenderer.SetPosition(1, grabPoint.transform.position + (grabPoint.transform.forward * 5f));
 
         // Create raycast for object selection text indicator and change guiding ray color
-        if (Physics.Raycast(grabPoint.transform.position, grabPoint.transform.TransformDirection(Vector3.forward), out hit, 10f))
+        if (Physics.Raycast(grabPoint.transform.position, grabPoint.transform.TransformDirection(Vector3.forward), out hit, 10f, layerMask))
+        {
+            // Check if the hit object is a fixture
+            if (hit.transform.CompareTag("Fixture"))
             {
-                // Check if the hit object is a fixture
-                if (hit.transform.CompareTag("Fixture"))
-                {
-                    // Update the color of the guiding raycast while a valid object is hit
-                    lineRenderer.startColor = Color.green;
-                    lineRenderer.endColor = Color.green;
+                // Update the color of the guiding raycast while a valid object is hit
+                lineRenderer.startColor = Color.green;
+                lineRenderer.endColor = Color.green;
 
-                    // Update content of the Text object
-                    tapeObject.text = "Seleccionando: " + hit.collider.gameObject.name;
-                }
-                
-                else
-                {
-                    // Reset guiding raycast color and text when no valid object is found
-                    lineRenderer.startColor = Color.red;
-                    lineRenderer.endColor = Color.red;
-                    tapeObject.text = "Sin selección";
-                }
+                // Update content of the Text object
+                textIndicator.text = "Seleccionando: " + hit.collider.gameObject.name;
             }
+        }
+    
+        else
+        {
+            // Reset guiding raycast color and text when no valid object is found
+            lineRenderer.startColor = Color.red;
+            lineRenderer.endColor = Color.red;
+            textIndicator.text = "Sin selección";
+        }
         }
     }
 }
