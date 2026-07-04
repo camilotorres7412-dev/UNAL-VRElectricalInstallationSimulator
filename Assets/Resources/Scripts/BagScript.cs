@@ -16,12 +16,16 @@ public class BagScript : MonoBehaviour
 
     public void OnRaycastSelect()
     {
-        activateUI = true;
-    }
+        // If deactivated, enable, else disable
+        if (activateUI == false)
+        {
+            activateUI = true;
+        }
 
-    public void OnRaycastUnselect()
-    {
-        activateUI = false;
+        else
+        {
+            activateUI = false;
+        }
     }
 
     // Update is called once per frame

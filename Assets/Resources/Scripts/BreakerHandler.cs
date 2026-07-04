@@ -17,7 +17,7 @@ public class BreakerHandler : MonoBehaviour, IFixturePlacer
         GetComponent<XRGrabInteractable>().enabled = false;
 
         // Add a sphere collider to the breaker socket for anchoring behavior
-        GameObject breakerSocket = GameObject.Find("BreakerPosition");
+        GameObject breakerSocket = transform.Find("BreakerPosition").gameObject;
 
         SphereCollider breakerSocketCollider = breakerSocket.AddComponent<SphereCollider>();
         breakerSocketCollider.isTrigger = true;

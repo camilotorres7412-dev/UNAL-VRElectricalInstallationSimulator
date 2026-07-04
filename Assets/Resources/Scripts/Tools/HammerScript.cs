@@ -90,10 +90,10 @@ public class HammerScript : MonoBehaviour
         guideLine.enabled = false;
 
         // If there is an active blueprint, destroy it upon drop and disable position updates
-        if (wireframeClone != null) 
+        if (wireframeClone != null)
         {
-        Destroy(wireframeClone); 
-        hammerActivated = false;
+            Destroy(wireframeClone); 
+            hammerActivated = false;
         }
     }
 

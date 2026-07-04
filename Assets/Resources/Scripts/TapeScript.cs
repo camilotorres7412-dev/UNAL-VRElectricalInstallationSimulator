@@ -17,8 +17,8 @@ public class TapeScript : MonoBehaviour
     private TextMeshPro tapeObject;
     private LineRenderer lineRenderer;
 
-    // Get notepad text component
-    private TextMeshPro notepadText;
+    // Get notepad text component (Note UI difference)
+    private TextMeshProUGUI notepadText;
 
     // Logic variables
     private bool tapeSelected = false;
@@ -51,8 +51,6 @@ public class TapeScript : MonoBehaviour
 
         // Get the tape's text mesh pro component
         tapeObject = textObject.GetComponent<TextMeshPro>();
-
-        notepadText = GameObject.FindWithTag("NotepadText").GetComponent<TextMeshPro>();
     }
 
     // Method called upon pickup, generates a guiding raycast from the tape and names selected object
@@ -60,6 +58,8 @@ public class TapeScript : MonoBehaviour
     {
         tapeSelected = true;
         lineRenderer.enabled = true;
+
+        notepadText = GameObject.FindWithTag("NotepadText").GetComponent<TextMeshProUGUI>();
     }
 
     // Method called upon drop, disables guiding raycast

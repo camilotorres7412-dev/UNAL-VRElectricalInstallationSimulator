@@ -16,19 +16,19 @@ public class ToolboxButtons : MonoBehaviour
         // Various methods for spawning the different tools
     public void CablePress()
     {
-        Instantiate(cable, new Vector3(0.6f,1.1f,2.3f), Quaternion.identity);
+        Instantiate(cable, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
     }
     public void HammerPress()
     {
-        Instantiate(hammer, new Vector3(0.6f,1.1f,2.3f), Quaternion.identity);
+        Instantiate(hammer, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
     }
     public void MeasuringTapePress()
     {
-        Instantiate(measuring_tape, new Vector3(0.6f,1.1f,2.3f), Quaternion.identity);
+        Instantiate(measuring_tape, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
     }
     public void NotepadPress()
     {
-        Instantiate(notepad, new Vector3(0.6f,1.1f,2.3f), Quaternion.identity);
+        Instantiate(notepad, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
     }
 
     // Update is called once per frame

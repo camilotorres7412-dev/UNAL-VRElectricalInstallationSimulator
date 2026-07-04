@@ -16,25 +16,25 @@ public class BagButtons : MonoBehaviour
 
     public void BreakerBoxPress()
     {
-        GameObject spawnedObject = Instantiate(breakerBox, new Vector3(0.6f,1.1f,2.3f), Quaternion.identity);
+        GameObject spawnedObject = Instantiate(breakerBox, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
 
         spawnedObject.name = "Gabinete 1";
     }
     public void PowerSocketPress()
     {
-        Instantiate(powerSocket, new Vector3(0.6f,1.1f,2.3f), Quaternion.identity);
+        Instantiate(powerSocket, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
     }
     public void BreakerSwitchPress()
     {
-        Instantiate(breakerSwitch, new Vector3(0.6f,1.1f,2.3f), Quaternion.identity);
+        Instantiate(breakerSwitch, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
     }
     public void LightbulbPress()
     {
-        Instantiate(lightbulb, new Vector3(0.6f,1.1f,2.3f), Quaternion.identity);
+        Instantiate(lightbulb, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
     }
         public void PowerSwitchPress()
     {
-        Instantiate(powerSwitch, new Vector3(0.6f,1.1f,2.3f), Quaternion.identity);
+        Instantiate(powerSwitch, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
     }
 
     // Update is called once per frame

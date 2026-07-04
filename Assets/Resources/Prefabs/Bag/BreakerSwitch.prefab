@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 970090b5dbda37a43992326bde3c8271, type: 3}
+      propertyPath: m_TagString
+      value: Fixture
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -426,4 +430,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fixture: 0
-  measure: 0
+  measureH: 0
+  measureV: 1
+  identifier: BreakerSwitch

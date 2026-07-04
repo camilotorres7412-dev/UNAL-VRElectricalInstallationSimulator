@@ -32,6 +32,7 @@ public class AnchorMagnet : MonoBehaviour
             localMesh = gameObject.GetComponent<MeshFilter>().sharedMesh;
         }
 
+
         // Only anchor fixtures with equal mesh filters
         if (anchorMesh == localMesh)
         {

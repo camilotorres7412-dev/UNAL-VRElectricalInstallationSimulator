@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8a050b2f27a15034780f2bab8f502d4e, type: 3}
+      propertyPath: m_TagString
+      value: Fixture
+      objectReference: {fileID: 0}
     - target: {fileID: 5223595868326812410, guid: 8a050b2f27a15034780f2bab8f502d4e, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -435,4 +439,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fixture: 1
-  measure: 1
+  measureH: 0
+  measureV: 1
+  identifier: Switch
