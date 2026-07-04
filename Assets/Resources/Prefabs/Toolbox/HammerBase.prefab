@@ -235,7 +235,19 @@ MonoBehaviour:
         m_CallState: 2
   m_LastSelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3102958625118990942}
+        m_TargetAssemblyTypeName: HammerScript, Assembly-CSharp
+        m_MethodName: HammerUnselected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -258,7 +270,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3102958625118990942}
-        m_TargetAssemblyTypeName: FixturePlacer, Assembly-CSharp
+        m_TargetAssemblyTypeName: HammerScript, Assembly-CSharp
         m_MethodName: HammerActivated
         m_Mode: 1
         m_Arguments:
@@ -271,19 +283,7 @@ MonoBehaviour:
         m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3102958625118990942}
-        m_TargetAssemblyTypeName: FixturePlacer, Assembly-CSharp
-        m_MethodName: HammerDeactivated
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
@@ -356,8 +356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7578d61ea6eb204ab00ed97aef7cc90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mtWireframe: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
-  mtChalk: {fileID: 2100000, guid: 4e75226c6d6025441b7913eac08283a5, type: 2}
 --- !u!120 &7461096648602417216
 LineRenderer:
   serializedVersion: 3
@@ -412,7 +410,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.05
+    widthMultiplier: 0.005
     widthCurve:
       serializedVersion: 2
       m_Curve:

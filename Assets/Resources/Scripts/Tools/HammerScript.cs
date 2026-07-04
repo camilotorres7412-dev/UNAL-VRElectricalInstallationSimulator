@@ -119,6 +119,7 @@ public class HammerScript : MonoBehaviour
         }
 
         // If there is already an anchored wireframe clone, re-enable position updates
+        // Also covers for the case where the object is dropped and another is picked up
         if (wireframeClone != null)
         {
 
@@ -193,6 +194,7 @@ public class HammerScript : MonoBehaviour
 
                 // Update content of the Text object
                 heightIndicator.text = measurePoint.position.y.ToString("0.00") + "m";
+                Debug.Log("Measurepoint Height: " + measurePoint.position.y.ToString("0.00") + "m");
             }
         }
     }
