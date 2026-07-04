@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Spawns tools or warps exsiting tools back to the toolbox
+/// </summary>
+
 public class ToolboxButtons : MonoBehaviour
 {
     // Enables selecting the tool prefabs in-editor
@@ -8,19 +12,28 @@ public class ToolboxButtons : MonoBehaviour
     public GameObject measuring_tape;
     public GameObject notepad;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-        // Various methods for spawning the different tools
+    // Actual in-game gameobjects
+    private GameObject cableInstance;
+    private GameObject hammerInstance;
+    private GameObject measuring_tapeInstance;
+    private GameObject notepadInstance;
+
+    // Various methods for spawning the different tools
     public void CablePress()
     {
         Instantiate(cable, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
     }
     public void HammerPress()
     {
-        Instantiate(hammer, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
+        if (hammerInstance is null)
+        {
+            hammerInstance = Instantiate(hammer, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
+        }
+
+        else
+        {
+            hammerInstance.transform.position = new Vector3(4.329f,1.172f,0.525f);
+        }
     }
     public void MeasuringTapePress()
     {

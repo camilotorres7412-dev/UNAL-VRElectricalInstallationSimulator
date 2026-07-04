@@ -1,74 +1,89 @@
 using UnityEngine;
 using TMPro;
+using UnityEditor;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.UIElements;
 
 /// <summary>
-/// This script handles the creation of "Wall Anchors" depending on the held fixture
-/// while the hammer is held on the other hand.
+/// Allows the placing of fixtures against valid surfaces through the creation of
+/// "Blueprint" clones
 /// </summary>
 
 public class HammerScript : MonoBehaviour
-
 {
-    // Reference to own interactable component to later get which hand is holding it
     private XRGrabInteractable thisHammer;
 
-    // Get an instance of hand opposite to the one holding the hammer
     private XRBaseInteractor otherHand;
 
-    // Raycast hit point
-    RaycastHit hit;
+    private RaycastHit hit;
 
-    // Later assigned to "Wall" mask to limit interactions
-    LayerMask layerMask;
+    private LayerMask layerMask;
+    private LayerMask blueprintColliderMask;
 
-    // Stores the fixture held in the other hand
+    private int selectionStatus = 0;
+
+    private bool updatePosition;
+
+    private MeshFilter meshFilter;
+
     private GameObject heldFixture;
+    private GameObject blueprintClone;
 
-    // Determine whether the player has activated the tool
-    private bool hammerActivated;
-
-    // Store created wireframe clone and wall anchor
-    private GameObject wireframeClone;
-
-    // Visual guide LineRenderer
     private LineRenderer guideLine;
-
-    // Object height LineRenderer
     private LineRenderer heightLine;
 
-    // Object rotation with respect to raycast hit normal
-    private Quaternion objRotation;
-
-    // Get object's custom attributes
-    private ObjectAttributes fixtureAttributes;
-
-    // Get object's "bottom" for measuring
-    private Transform measurePoint;
-
-    // Store held fixture's text component for real-time value viewing
     private TextMeshPro heightIndicator;
 
+    void ChangeAllMaterials(GameObject targetObject)
+    {
+        Material newMaterial = Resources.Load<Material>("Experimental/Blueprint");
+
+        // Find all Renderer components on this object and all of its children
+        Renderer[] renderers = targetObject.GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer rend in renderers)
+        {
+            // Create a new array matching the size of the original materials array
+            Material[] newMaterialsArray = new Material[rend.sharedMaterials.Length];
+
+            // Fill the array with the new target material
+            for (int i = 0; i < newMaterialsArray.Length; i++)
+            {
+                newMaterialsArray[i] = newMaterial;
+            }
+
+            // Assign the updated array back to the renderer
+            rend.materials = newMaterialsArray;
+        }
+    }
+
+    // Called before the first Update call
     void Start()
     {
-        // Get layer mask to limit interactable surfaces (Roof counts as a wall)
+        // Get layer mask to limit interactable surfaces (Roof and floor count as walls)
         layerMask = LayerMask.GetMask("Wall");
+        blueprintColliderMask = LayerMask.GetMask("Fixture");
 
         // Get hammer's Grab Interactable component to later identify which hand is holding it
         thisHammer = gameObject.GetComponent<XRGrabInteractable>();
 
         // Get hammer's own LineRenderer component to enable guiding raycast
         guideLine = gameObject.GetComponent<LineRenderer>();
+
+        // Get child HeightIndicator object LineRenderer and TextMeshPro for indicator updates
+        heightLine = transform.Find("HeightIndicator").GetComponent<LineRenderer>();
+        heightIndicator = transform.Find("HeightIndicator").GetComponent<TextMeshPro>();
+
+        meshFilter = GetComponent<MeshFilter>();
     }
 
-    // Method called upon hammer pickup, identifies holding hand and enables guide
-    public void HammerSelected()
+    // Called upon hammer pickup
+    // Identifies hand opposite of the hammer, enables guiding raycast and re-enables position updates if dropped mid use
+    public void OnSelect()
     {
-        // Get the transform component & tag of the holding hand
         Transform selectingInteractor = thisHammer.interactorsSelecting[0].transform;
 
-        // If held by left hand, other hand is right, and vice versa
         if (selectingInteractor.CompareTag("LeftHandInteractor"))
         {
             otherHand = GameObject.FindWithTag("RightHandInteractor").GetComponent<NearFarInteractor>();
@@ -79,123 +94,116 @@ public class HammerScript : MonoBehaviour
             otherHand = GameObject.FindWithTag("LeftHandInteractor").GetComponent<NearFarInteractor>();
         }
 
-        // Enable guiding raycast component and continuous update
+        if (selectionStatus == 1) {updatePosition = true;}
+
         guideLine.enabled = true;
     }
 
-    // Method called upon hammer drop, disables guide and destroys active wireframe clone
-    public void HammerUnselected()
+    // Called upon hammer drop
+    // Disables guiding raycast and pauses position updates
+    public void OnUnselect()
     {
-        // Disable guiding raycast component and continuous update
+        updatePosition = false;
         guideLine.enabled = false;
-
-        // If there is an active blueprint, destroy it upon drop and disable position updates
-        if (wireframeClone != null)
-        {
-            Destroy(wireframeClone); 
-            hammerActivated = false;
-        }
     }
 
-    // Method called upon trigger pull, has two functions:
+    // Called upon hammer destruction
+    // Destroys orphaned blueprint clone, if one existed at the time of destruction
+    public void OnDisable()
+    {
+        if(blueprintClone is not null) {Destroy(blueprintClone);}
+    }
+
+    // Called upon activation trigger pull
     // First press creates the wireframe clone and enables continuous position updates of it
     // Second press disables continuous position updates and enables wall anchor behavior
-    // Third press re-enables wireframe clone position updating, and so on.
-    public void HammerActivated()
+    // Third press destroys the active blueprint to enable the creation of a new one
+    public void OnActivate()
     {
-        // Check if the hammer had been successfully activated, skip otherwise
-        if (hammerActivated == true)
+        switch (selectionStatus)
         {
-            hammerActivated = false;
+            // Initial button press
+            // Create the blueprint from a raycast and enable position updates
+            // Will not progress into next state until a valid blueprint is created
+            case 0:
+                // Check for validity of object meant to receive a blueprint
+                if (otherHand.hasSelection && otherHand.interactablesSelected[0].transform.CompareTag("Fixture"))
+                {
+                    heldFixture = otherHand.interactablesSelected[0].transform.gameObject;
 
-            // Enable the wireframe clone's sphere collider
-            wireframeClone.GetComponent<SphereCollider>().enabled = true;
+                    // Fire a raycast to determine blueprint creation position
+                    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5f, layerMask))
+                    {
+                        // Retrieve the held fixture's parent prefab, instantiate a copy and change its material to blueprint
+                        GameObject parentPrefab = PrefabUtility.GetCorrespondingObjectFromSource(heldFixture);
+                        blueprintClone = Instantiate(parentPrefab, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
+                        ChangeAllMaterials(blueprintClone);
 
-            // Enable the wireframe clone's anchor magnet script
-            wireframeClone.GetComponent<AnchorMagnet>().enabled = true;
+                        // Add relevant functionality components
+                        SphereCollider blueprintCollider = blueprintClone.AddComponent<SphereCollider>();
+                        blueprintCollider.isTrigger = true;
+                        blueprintCollider.includeLayers = blueprintColliderMask;
 
-            // Interrupt execution to prevent creating another instace
-            return;
-        }
+                        blueprintClone.AddComponent<AnchorMagnet>();
 
-        // If there is already an anchored wireframe clone, re-enable position updates
-        // Also covers for the case where the object is dropped and another is picked up
-        if (wireframeClone != null)
-        {
+                        // Enable position guides
+                        heightLine.enabled = true;
+                        heightIndicator.enabled = true;
 
-            // Disable the wireframe clone's sphere collider
-            wireframeClone.GetComponent<SphereCollider>().enabled = false;
+                        // Enable continuous calls for adjustment function
+                        updatePosition = true;
 
-            // Disable the wireframe clone's anchor magnet script
-            wireframeClone.GetComponent<AnchorMagnet>().enabled = false;
+                        selectionStatus = 1;
+                    }
+                }
+                break;
 
-            // Re-enable position updates every frame
-            hammerActivated = true;
+            // Second button press
+            // Disable blueprint position updates, disable guides and enable collider
+            case 1:
 
-            // Interrupt execution to prevent creating another instance
-            return;
-        }
+                blueprintClone.GetComponent<SphereCollider>().enabled = true;
+                blueprintClone.GetComponent<AnchorMagnet>().enabled = true;
 
-        // Check if the free hand is holding an object and that object is a fixture
-        if (otherHand.hasSelection && otherHand.interactablesSelected[0].transform.CompareTag("Fixture"))
-        {
-            // Assign object as held fixture
-            heldFixture = otherHand.interactablesSelected[0].transform.gameObject;
+                heightLine.enabled = false;
+                heightIndicator.enabled = false;
 
-            // Get held fixture's custom attributes to determine measuring direction
-            fixtureAttributes = heldFixture.GetComponent<ObjectAttributes>();
+                updatePosition = false;
 
-            // Shoot a raycast from the hammer's origin that only detects walls
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5f, layerMask))
-            {
-                // Get normal rotation of hit point for instantiation of wireframe clone rotated against surface
-                objRotation = Quaternion.LookRotation(hit.normal, Vector3.up);
+                selectionStatus = 2;
+                break;
 
-                // Get object's "identifier" field to create wireframe clone mesh. Mind exact name matching!
-                GameObject objPrefab = Resources.Load<GameObject>("Prefabs/Blueprints/" + fixtureAttributes.identifier);
+            // Third button press
+            // Destroy wireframe clone to enable the creation of a new one
+            case 2:
+                Destroy(blueprintClone); 
 
-                // Instantiate new wireframe clone from identified mesh with special visuals.
-                wireframeClone = Instantiate(objPrefab, hit.point, objRotation);
-
-                // Get wireframe clone's measure point to align initial measurement
-                measurePoint = wireframeClone.transform.Find("MeasurePoint");
-
-                // Get wireframe clone's LineRenderer component to update the visual measurement line
-                heightLine = wireframeClone.GetComponent<LineRenderer>();
-
-                // Get wireframe clone's TextMeshPro component to update the visual measure value
-                heightIndicator = wireframeClone.transform.Find("HeightIndicator").GetComponent<TextMeshPro>();
-
-                // Enable continuous calls for adjustment function
-                hammerActivated = true;
-            }
-
+                selectionStatus = 0;
+                break;
         }
     }
 
-    // Method called every frame while the trigger is held, updates wireframe clone position
+    // Called every frame while adjusting is active, updates blueprint clone position
     public void AdjustWireFrame()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5f, layerMask))
         {
             // Update the object's position to the hit point
-            wireframeClone.transform.position = hit.point;
+            blueprintClone.transform.position = hit.point;
 
             // Update the object's rotation to look at the normal
-            objRotation = Quaternion.LookRotation(hit.normal, Vector3.up);
-            wireframeClone.transform.rotation = objRotation;
+            blueprintClone.transform.rotation = Quaternion.LookRotation(hit.normal, Vector3.up);
 
-            // Check object's measuring orientation and adjust guiding lines accordingly
-            if (fixtureAttributes.measureV == true)
-            {
-                // Set the positions of LineRenderer points, one at measure point and other at floor
-                heightLine.SetPosition(0, measurePoint.position);
-                heightLine.SetPosition(1, new Vector3(measurePoint.position.x, 0, measurePoint.position.z));
+            // Get wireframe clone's lowest point in y for height reference
+            Vector3 measurePoint = meshFilter.sharedMesh.bounds.min; 
 
-                // Update content of the Text object
-                heightIndicator.text = measurePoint.position.y.ToString("0.00") + "m";
-                Debug.Log("Measurepoint Height: " + measurePoint.position.y.ToString("0.00") + "m");
-            }
+            // Set the positions of LineRenderer points, one at measure point and other at floor
+            // Slight displacement along the normal to avoid wall occlusion
+            heightLine.SetPosition(0, measurePoint + (hit.normal * 0.1f) );
+            heightLine.SetPosition(1, new Vector3(measurePoint.x, 0, measurePoint.z) + (hit.normal * 0.1f));
+
+            // Update content of the Text object
+            heightIndicator.text = measurePoint.y.ToString("0.00") + "m";
         }
     }
 
@@ -208,7 +216,7 @@ public class HammerScript : MonoBehaviour
             guideLine.SetPosition(1, transform.position + (transform.forward * 5f));
         }
 
-        if (hammerActivated)
+        if (updatePosition)
         {
             AdjustWireFrame();
         }

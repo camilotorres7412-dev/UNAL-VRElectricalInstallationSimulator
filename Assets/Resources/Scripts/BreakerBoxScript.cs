@@ -8,18 +8,18 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class BreakerBoxScript : MonoBehaviour
 {   
-    private void OnEnable()
+    // Subscribes to the OnPlaced method when a valid collider is hit
+    private void OnTriggerEnter(Collider other)
     {
-        AnchorMagnet.OnPlaced += UpdateBreakerBoxComponents;
-    }
-
-    private void OnDisable()
-    {
-        AnchorMagnet.OnPlaced -= UpdateBreakerBoxComponents;
+        // Check if the entering object has a specific tag
+        if (other.CompareTag("Blueprint"))
+        {
+            AnchorMagnet.OnPlaced += UpdateComponents;
+        }
     }
 
     // Method called as soon as anchoring process is finished
-    public void UpdateBreakerBoxComponents()
+    public void UpdateComponents()
     {
         // Disable Rigidbody physics, grab interactions and collider
         GetComponent<BoxCollider>().enabled = false;
@@ -43,6 +43,6 @@ public class BreakerBoxScript : MonoBehaviour
         doorlid.GetComponent<XRSimpleInteractable>().enabled = true;
 
         // Unsubscribe from future OnPlaced events
-        AnchorMagnet.OnPlaced -= UpdateBreakerBoxComponents;
+        AnchorMagnet.OnPlaced -= UpdateComponents;
     }
 }

@@ -318,6 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElectricalAttributes
   wireIn: {fileID: 0}
   wireOut: {fileID: 0}
+  Amperage: 0
   powered: 0
 --- !u!108 &344627864905560797
 Light:

@@ -10,18 +10,11 @@ public class BreakerScript : MonoBehaviour
     // Get and store switch pole (child) transform
     Transform poleTransform;
 
-    // Subscribe to event on enable
     private void OnEnable()
     {
-        AnchorMagnet.OnPlaced += UpdateBreakerComponents;
+        AnchorMagnet.OnPlaced += UpdateComponents;
 
         poleTransform = transform.Find("Breaker Switch");
-    }
-
-    // Unsubscribe to event on disable or destruction
-    private void OnDisable()
-    {
-        AnchorMagnet.OnPlaced -= UpdateBreakerComponents;
     }
 
     // Method associated to XR Simple Interactable - On Select, initiates rotation animation
@@ -88,7 +81,7 @@ public class BreakerScript : MonoBehaviour
     }
 
     // Method called once the breaker reaches its final position after magnetism
-    private void UpdateBreakerComponents()
+    private void UpdateComponents()
     {
         // Disable grab behavior, physics updates and enable switch behavior instead
         GetComponent<XRGrabInteractable>().enabled = false;
@@ -96,6 +89,6 @@ public class BreakerScript : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = true;
 
         // Unsubscribe from event to prevent future calls upon object placement
-        AnchorMagnet.OnPlaced -= UpdateBreakerComponents;        
+        AnchorMagnet.OnPlaced -= UpdateComponents;        
     }
 }

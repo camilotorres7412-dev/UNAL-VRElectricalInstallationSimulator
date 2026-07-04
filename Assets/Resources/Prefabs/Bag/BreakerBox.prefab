@@ -156,7 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2bee402994c3a448523379f6c4a2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnchorMagnet
-  anchorID: Breaker
 --- !u!1 &6702116324295408092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
@@ -353,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElectricalAttributes
   wireIn: {fileID: 0}
   wireOut: {fileID: 0}
+  Amperage: 0
   powered: 0
 --- !u!114 &1179252066987244545
 MonoBehaviour:
@@ -366,10 +366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e81a50750e24db43aea74118434f1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectAttributes
-  fixture: 1
-  measureH: 0
-  measureV: 1
-  anchorID: BreakerBox
   identifier: BreakerBox
 --- !u!114 &8824536227081184214
 MonoBehaviour:

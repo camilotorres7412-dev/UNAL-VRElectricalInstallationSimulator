@@ -11,6 +11,8 @@ TagManager:
   - Fixture
   - NotepadText
   - Finishes
+  - Hammer
+  - Blueprint
   layers:
   - Default
   - TransparentFX

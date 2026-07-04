@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -10,74 +11,73 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class AnchorMagnet : MonoBehaviour
 {
     public static event Action OnPlaced;
-    private bool enableUpdate = false;
-
+    private float animationDuration = 1f;
     private GameObject incomingFixture;
 
-    private float slerpX = 0f;
-
-    public string anchorID;
-    private string incomingAnchorID;
-
+    // Collider filter defined in "HammerScript". Only reacts to "Fixture" layer objects
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.CompareTag("Fixture"))
+        incomingFixture = other.gameObject;
+
+        MeshFilter incomingFilter = incomingFixture.GetComponent<MeshFilter>();
+
+        // Only anchor matching mesh filters (In case a different object is picked up)
+        if (GetComponent<MeshFilter>().sharedMesh == incomingFilter.sharedMesh)
         {
-            incomingFixture = other.gameObject;
-            
-            // Check if the object that touched has attributes
-            if (incomingFixture.GetComponent<ObjectAttributes>() != null)
+        // Disable blueprint clone rendering
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+            foreach (Renderer r in GetComponentsInChildren<MeshRenderer>())
             {
-
-                incomingAnchorID = incomingFixture.GetComponent<ObjectAttributes>().anchorID;
-
-                // Only anchor matching IDs
-                if (anchorID == incomingAnchorID)
-                {
-                    // Disable wireframe clone rendering
-                    gameObject.GetComponent<MeshRenderer>().enabled = false;
-
-                    foreach (Renderer r in GetComponentsInChildren<MeshRenderer>())
-                    {
-                        r.enabled = false;
-                    }
-
-                    // Disable wireframe clone collider
-                    gameObject.GetComponent<Collider>().enabled = false;
-
-                    // Disable held fixture grab
-                    incomingFixture.GetComponent<XRGrabInteractable>().enabled = false;
-
-                    // Bandaid fix for isKinematic
-                    // Maybe because of GrabInteractor shenanigans?
-                    incomingFixture.GetComponent<Rigidbody>().isKinematic = true;
-
-                    // Enable position updates every frame
-                    enableUpdate = true;
-                }
+                r.enabled = false;
             }
+
+            // Disable blueprint clone collider
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+
+            // Disable held fixture grab
+            incomingFixture.GetComponent<XRGrabInteractable>().enabled = false;
+
+            // Enable IsKinematic to prevent object from falling to the floor
+            incomingFixture.GetComponent<Rigidbody>().isKinematic = true;
+
+            // Prevent animation overlap
+            StopAllCoroutines();
+
+            // Commence animation with acquired target rotation
+            StartCoroutine(SlerpRoutine(gameObject.transform.position, gameObject.transform.rotation));
         }
     }
 
-    // Handles Slerp into target position when enabled
-    void Update()
+    private IEnumerator SlerpRoutine(Vector3 targetPosition, Quaternion targetRotation)
     {
-        if (enableUpdate == true)
+        Vector3 startPosition = incomingFixture.transform.position;
+        Quaternion startRotation = incomingFixture.transform.rotation;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < animationDuration)
         {
-            // Smoothly move and rotate into anchor position
-            incomingFixture.transform.position = Vector3.Slerp(incomingFixture.transform.position, gameObject.transform.position, Mathf.Clamp(slerpX, 0, 1));
-            incomingFixture.transform.rotation = Quaternion.Slerp(incomingFixture.gameObject.transform.rotation, gameObject.transform.rotation, Mathf.Clamp(slerpX, 0, 1));
+            // Increment percentage over time
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / animationDuration);
 
-            slerpX += 0.01f;
+            // Apply Slerp
+            incomingFixture.transform.position = Vector3.Slerp(startPosition, targetPosition, t);
+            incomingFixture.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, t);
 
-            // Execute logic when the object arrives at its destination
-            if (Mathf.Clamp(slerpX, 0, 1) == 1)
-            {
-                OnPlaced?.Invoke();
-
-                // Destroy anchor object
-                Destroy(gameObject);
-            }
+            // Wait for the next frame
+            yield return null;
         }
+
+        // Ensure exact target rotation and position at the end
+        incomingFixture.transform.position = targetPosition;
+        incomingFixture.transform.rotation = targetRotation;
+
+        // Invoke component update method on fixture object
+        OnPlaced?.Invoke();
+
+        // Destroy this blueprint
+        Destroy(gameObject);
     }
 }
