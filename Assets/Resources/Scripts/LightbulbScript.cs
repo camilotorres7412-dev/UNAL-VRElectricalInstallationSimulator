@@ -7,25 +7,26 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class LightBulbScript : MonoBehaviour
 {
-    private void OnEnable()
+    void OnTriggerEnter(Collider other)
     {
-        AnchorMagnet.OnPlaced += UpdateLightbulbComponents;
-    }
-
-    private void OnDisable()
-    {
-        AnchorMagnet.OnPlaced -= UpdateLightbulbComponents;
+        if (other.CompareTag("Blueprint"))
+        {
+            AnchorMagnet.OnPlaced += UpdateComponents;
+        }
     }
 
     // Method called as soon as anchoring process is finished
-    public void UpdateLightbulbComponents()
+    public void UpdateComponents()
     {
         // Disable Rigidbody physics, grab interactions
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<XRGrabInteractable>().enabled = false;
 
+        // Change interaction layer to Wireable for Cable Spool compatibility
+        gameObject.layer = LayerMask.NameToLayer("Wireable");
+
         // Unsubscribe from future OnPlaced events
-        AnchorMagnet.OnPlaced -= UpdateLightbulbComponents;
+        AnchorMagnet.OnPlaced -= UpdateComponents;
     }
 
     void Update()

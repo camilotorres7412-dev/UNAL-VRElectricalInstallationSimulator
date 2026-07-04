@@ -75,7 +75,7 @@ public class HammerScript : MonoBehaviour
         heightLine = transform.Find("HeightIndicator").GetComponent<LineRenderer>();
         heightIndicator = transform.Find("HeightIndicator").GetComponent<TextMeshPro>();
 
-        meshFilter = GetComponent<MeshFilter>();
+        meshFilter = gameObject.GetComponent<MeshFilter>();
     }
 
     // Called upon hammer pickup
@@ -135,16 +135,24 @@ public class HammerScript : MonoBehaviour
                     if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5f, layerMask))
                     {
                         // Retrieve the held fixture's parent prefab, instantiate a copy and change its material to blueprint
-                        GameObject parentPrefab = PrefabUtility.GetCorrespondingObjectFromSource(heldFixture);
-                        blueprintClone = Instantiate(parentPrefab, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
+                        // The object has its parent prefab instance assigned via editor
+                        blueprintClone = Instantiate(heldFixture.GetComponent<ObjectAttributes>().blueprintInstance, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
+
                         ChangeAllMaterials(blueprintClone);
+
+                        blueprintClone.tag = "Blueprint";
 
                         // Add relevant functionality components
                         SphereCollider blueprintCollider = blueprintClone.AddComponent<SphereCollider>();
+                        blueprintCollider.enabled = false;
                         blueprintCollider.isTrigger = true;
                         blueprintCollider.includeLayers = blueprintColliderMask;
 
-                        blueprintClone.AddComponent<AnchorMagnet>();
+                        AnchorMagnet anchorScript = blueprintClone.AddComponent<AnchorMagnet>();
+                        anchorScript.enabled = false;
+
+                        ObjectAttributes blueprintAttributes = blueprintClone.AddComponent<ObjectAttributes>();
+                        blueprintAttributes.AnchorID = "Blueprint";
 
                         // Enable position guides
                         heightLine.enabled = true;

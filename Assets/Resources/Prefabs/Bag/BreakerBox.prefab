@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8872325200514626126, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d68dc57d06a499a43bf3bd604d7fd563, type: 2}
     - target: {fileID: -8679921383154817045, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.307343
@@ -48,34 +52,106 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8449010942980148881, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7975525952926386375, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_TagString
+      value: Blueprint
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 7a579c865b8207747bb59f74958a1984, type: 2}
+    - target: {fileID: -7242882546056418710, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -5102400338957986524, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4324aab071eadb44e93356137cac1f8d, type: 2}
+    - target: {fileID: -4834677571805374821, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d68dc57d06a499a43bf3bd604d7fd563, type: 2}
+    - target: {fileID: -4799695506367142103, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4465811857262128497, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d68dc57d06a499a43bf3bd604d7fd563, type: 2}
+    - target: {fileID: -3687403880803696044, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d68dc57d06a499a43bf3bd604d7fd563, type: 2}
+    - target: {fileID: -2845729142420428148, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2458478157601509082, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_TagString
+      value: Blueprint
+      objectReference: {fileID: 0}
+    - target: {fileID: -2400706592724798529, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 730215062095774345, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_TagString
+      value: Blueprint
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       propertyPath: m_Name
       value: BreakerBox
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       propertyPath: m_TagString
       value: Fixture
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927093122304237148, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d68dc57d06a499a43bf3bd604d7fd563, type: 2}
+    - target: {fileID: 3657254881248576379, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_TagString
+      value: Blueprint
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027228791024609348, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4674091138663052055, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5525335917173785515, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d68dc57d06a499a43bf3bd604d7fd563, type: 2}
     - target: {fileID: 6532977614338735206, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 7a579c865b8207747bb59f74958a1984, type: 2}
+    - target: {fileID: 7036454461786123471, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_TagString
+      value: Blueprint
+      objectReference: {fileID: 0}
     - target: {fileID: 7418098771544918504, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 7a579c865b8207747bb59f74958a1984, type: 2}
+    - target: {fileID: 7829875415090029081, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      propertyPath: m_TagString
+      value: Blueprint
+      objectReference: {fileID: 0}
     - target: {fileID: 8010385233021146905, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -102,60 +178,337 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8824536227081184214}
-    - targetCorrespondingSourceObject: {fileID: -7242882546056418710, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 7036454461786123471, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4446122709199074549}
-    - targetCorrespondingSourceObject: {fileID: -7242882546056418710, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      addedObject: {fileID: 784498034493574409}
+    - targetCorrespondingSourceObject: {fileID: 7036454461786123471, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 303413563961554081}
+      addedObject: {fileID: 5486880674092963794}
+    - targetCorrespondingSourceObject: {fileID: 7036454461786123471, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8078075885739716660}
+    - targetCorrespondingSourceObject: {fileID: 730215062095774345, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3981876422987996991}
+    - targetCorrespondingSourceObject: {fileID: 730215062095774345, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4661905441662296834}
+    - targetCorrespondingSourceObject: {fileID: 730215062095774345, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5138981545336625492}
+    - targetCorrespondingSourceObject: {fileID: 7829875415090029081, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7650779388894522849}
+    - targetCorrespondingSourceObject: {fileID: 7829875415090029081, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 655206550236105657}
+    - targetCorrespondingSourceObject: {fileID: 7829875415090029081, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1008415643579843612}
+    - targetCorrespondingSourceObject: {fileID: -2458478157601509082, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3867085998777027991}
+    - targetCorrespondingSourceObject: {fileID: -2458478157601509082, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 173102529281699176}
+    - targetCorrespondingSourceObject: {fileID: -2458478157601509082, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1205075072953613150}
+    - targetCorrespondingSourceObject: {fileID: -7975525952926386375, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3055780680604057567}
+    - targetCorrespondingSourceObject: {fileID: -7975525952926386375, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8663085828614431444}
+    - targetCorrespondingSourceObject: {fileID: -7975525952926386375, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1941359815753882065}
+    - targetCorrespondingSourceObject: {fileID: 3657254881248576379, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6493071149852523118}
+    - targetCorrespondingSourceObject: {fileID: 3657254881248576379, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3802543847584188262}
+    - targetCorrespondingSourceObject: {fileID: 3657254881248576379, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3283911633443163100}
     - targetCorrespondingSourceObject: {fileID: -4799695506367142103, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5693688542976754053}
     - targetCorrespondingSourceObject: {fileID: -4799695506367142103, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1210035282889271887}
-    - targetCorrespondingSourceObject: {fileID: -4799695506367142103, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3276968088077239902}
   m_SourcePrefab: {fileID: 100100000, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
---- !u!1 &5386241565743804135 stripped
+--- !u!1 &667142923874856449 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: -7242882546056418710, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+  m_CorrespondingSourceObject: {fileID: -2845729142420428148, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
   m_PrefabInstance: {fileID: 5891793085057483917}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &4446122709199074549
+--- !u!1 &874368739572626859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2458478157601509082, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+  m_PrefabInstance: {fileID: 5891793085057483917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3867085998777027991
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5386241565743804135}
+  m_GameObject: {fileID: 874368739572626859}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 383
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.029999997, y: 0.029999992, z: 0.030670373}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.003661187}
---- !u!114 &303413563961554081
+  m_Size: {x: 0.06545868, y: 0.021414155, z: 0.08038088}
+  m_Center: {x: -0.000000007450581, y: 0.00000011874363, z: -0.015056772}
+--- !u!114 &173102529281699176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5386241565743804135}
+  m_GameObject: {fileID: 874368739572626859}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de2bee402994c3a448523379f6c4a2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnchorMagnet
+--- !u!114 &1205075072953613150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874368739572626859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e81a50750e24db43aea74118434f1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectAttributes
+  displayName: Breaker
+  AnchorID: Breaker
+  blueprintInstance: {fileID: 0}
+--- !u!1 &3487290884046530626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7036454461786123471, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+  m_PrefabInstance: {fileID: 5891793085057483917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &784498034493574409
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487290884046530626}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 383
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.06545868, y: 0.021414155, z: 0.08038088}
+  m_Center: {x: -0.000000007450581, y: 0.00000011874363, z: -0.015056772}
+--- !u!114 &5486880674092963794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487290884046530626}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2bee402994c3a448523379f6c4a2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnchorMagnet
+--- !u!114 &8078075885739716660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487290884046530626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e81a50750e24db43aea74118434f1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectAttributes
+  displayName: Breaker
+  AnchorID: Breaker
+  blueprintInstance: {fileID: 0}
+--- !u!1 &4425513054141490836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7829875415090029081, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+  m_PrefabInstance: {fileID: 5891793085057483917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7650779388894522849
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425513054141490836}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 383
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.06545868, y: 0.021414155, z: 0.08038088}
+  m_Center: {x: -0.000000007450581, y: 0.00000011874363, z: -0.015056772}
+--- !u!114 &655206550236105657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425513054141490836}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2bee402994c3a448523379f6c4a2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnchorMagnet
+--- !u!114 &1008415643579843612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425513054141490836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e81a50750e24db43aea74118434f1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectAttributes
+  displayName: Breaker
+  AnchorID: Breaker
+  blueprintInstance: {fileID: 0}
+--- !u!1 &4653036445854708660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7975525952926386375, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+  m_PrefabInstance: {fileID: 5891793085057483917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3055780680604057567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4653036445854708660}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 383
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.06545868, y: 0.021414155, z: 0.08038088}
+  m_Center: {x: -0.000000007450581, y: 0.00000011874363, z: -0.015056772}
+--- !u!114 &8663085828614431444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4653036445854708660}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2bee402994c3a448523379f6c4a2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnchorMagnet
+--- !u!114 &1941359815753882065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4653036445854708660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e81a50750e24db43aea74118434f1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectAttributes
+  displayName: Breaker
+  AnchorID: Breaker
+  blueprintInstance: {fileID: 0}
+--- !u!1 &6620823764796933636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 730215062095774345, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+  m_PrefabInstance: {fileID: 5891793085057483917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3981876422987996991
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6620823764796933636}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 383
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.06545868, y: 0.021414155, z: 0.08038088}
+  m_Center: {x: -0.000000007450581, y: 0.00000011874363, z: -0.015056772}
+--- !u!114 &4661905441662296834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6620823764796933636}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2bee402994c3a448523379f6c4a2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnchorMagnet
+--- !u!114 &5138981545336625492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6620823764796933636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e81a50750e24db43aea74118434f1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectAttributes
+  displayName: Breaker
+  AnchorID: Breaker
+  blueprintInstance: {fileID: 0}
 --- !u!1 &6702116324295408092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
@@ -350,8 +703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d356c4940cc7a0d45bd27ee921382e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElectricalAttributes
-  wireIn: {fileID: 0}
-  wireOut: {fileID: 0}
   Amperage: 0
   powered: 0
 --- !u!114 &1179252066987244545
@@ -366,7 +717,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e81a50750e24db43aea74118434f1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectAttributes
-  identifier: BreakerBox
+  displayName: Gabinete
+  AnchorID: Blueprint
+  blueprintInstance: {fileID: 919132149155446097, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
 --- !u!114 &8824536227081184214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +732,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53a5a0d3634fb14ebc478b816b71a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BreakerHandler
+  breakerList:
+  - {fileID: 3487290884046530626}
+  - {fileID: 6620823764796933636}
+  - {fileID: 4425513054141490836}
+  - {fileID: 874368739572626859}
+  - {fileID: 4653036445854708660}
+  - {fileID: 7134536786916067318}
+  doorLid: {fileID: 7829460422666675108}
+  stencilCutter: {fileID: 667142923874856449}
+--- !u!1 &7134536786916067318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3657254881248576379, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
+  m_PrefabInstance: {fileID: 5891793085057483917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6493071149852523118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134536786916067318}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 383
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.06545868, y: 0.021414155, z: 0.08038088}
+  m_Center: {x: -0.000000007450581, y: 0.00000011874363, z: -0.015056772}
+--- !u!114 &3802543847584188262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134536786916067318}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2bee402994c3a448523379f6c4a2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnchorMagnet
+--- !u!114 &3283911633443163100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134536786916067318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e81a50750e24db43aea74118434f1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectAttributes
+  displayName: Breaker
+  AnchorID: Breaker
+  blueprintInstance: {fileID: 0}
 --- !u!1 &7829460422666675108 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4799695506367142103, guid: 1078d75caa7393b42adfc87b216ea1af, type: 3}
@@ -446,19 +861,7 @@ MonoBehaviour:
       m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3276968088077239902}
-        m_TargetAssemblyTypeName: BreakerBoxDoorlidScript, Assembly-CSharp
-        m_MethodName: OnSelect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_LastSelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -482,7 +885,19 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8824536227081184214}
+        m_TargetAssemblyTypeName: BreakerBoxScript, Assembly-CSharp
+        m_MethodName: OnXRActivated
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -491,16 +906,3 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &3276968088077239902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7829460422666675108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b51951b6b0a1064daa0fe3f2582b86f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BreakerBoxDoorlidScript
-  rotationSpeed: 10

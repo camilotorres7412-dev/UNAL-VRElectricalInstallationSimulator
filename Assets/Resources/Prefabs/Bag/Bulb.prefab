@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9d7e35f07c7003941a99c507232350a6, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9d7e35f07c7003941a99c507232350a6, type: 3}
       propertyPath: m_TagString
@@ -299,11 +299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e81a50750e24db43aea74118434f1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixture: 1
-  measureH: 0
-  measureV: 0
-  anchorID: Bulb
-  identifier: Bulb
+  displayName: Ojo de Buey
+  AnchorID: Blueprint
+  blueprintInstance: {fileID: 919132149155446097, guid: 9d7e35f07c7003941a99c507232350a6, type: 3}
 --- !u!114 &1007680090210312894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,8 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d356c4940cc7a0d45bd27ee921382e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElectricalAttributes
-  wireIn: {fileID: 0}
-  wireOut: {fileID: 0}
+  connections: []
   Amperage: 0
   powered: 0
 --- !u!108 &344627864905560797

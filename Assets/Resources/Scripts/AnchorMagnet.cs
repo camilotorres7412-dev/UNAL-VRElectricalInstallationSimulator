@@ -8,6 +8,8 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 /// said object will be transported into this object. 
 /// </summary>
 
+// [RequireComponent(typeof(ObjectAttributes))]
+
 public class AnchorMagnet : MonoBehaviour
 {
     public static event Action OnPlaced;
@@ -19,10 +21,12 @@ public class AnchorMagnet : MonoBehaviour
     {
         incomingFixture = other.gameObject;
 
-        MeshFilter incomingFilter = incomingFixture.GetComponent<MeshFilter>();
+        ObjectAttributes incomingAttributes = incomingFixture.GetComponent<ObjectAttributes>();
 
-        // Only anchor matching mesh filters (In case a different object is picked up)
-        if (GetComponent<MeshFilter>().sharedMesh == incomingFilter.sharedMesh)
+        // Only anchor compatible Anchor IDs
+        // Logic can be fuzzy, but this implementation handles the anchoring "order" of things
+        // which is arbitrarily defined in each object's AnchorID
+        if (gameObject.GetComponent<ObjectAttributes>().AnchorID == incomingAttributes.AnchorID)
         {
         // Disable blueprint clone rendering
             gameObject.GetComponent<MeshRenderer>().enabled = false;
@@ -33,7 +37,7 @@ public class AnchorMagnet : MonoBehaviour
             }
 
             // Disable blueprint clone collider
-            gameObject.GetComponent<SphereCollider>().enabled = false;
+            gameObject.GetComponent<Collider>().enabled = false;
 
             // Disable held fixture grab
             incomingFixture.GetComponent<XRGrabInteractable>().enabled = false;

@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Measuring Tape
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3a5c7c003a0d0040af7456982e8a79c, type: 3}
+      propertyPath: m_TagString
+      value: Tape
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -410,7 +414,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7833945650387846654}
         m_TargetAssemblyTypeName: TapeScript, Assembly-CSharp
-        m_MethodName: TapeActivated
+        m_MethodName: OnActivated
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -495,6 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 557c3c71e7294434b931f447d601c1a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TapeScript
+  height: 
 --- !u!4 &6814780807094195628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3a5c7c003a0d0040af7456982e8a79c, type: 3}

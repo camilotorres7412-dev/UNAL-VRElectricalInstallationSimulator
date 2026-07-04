@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -8,13 +10,100 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class BreakerBoxScript : MonoBehaviour
 {   
-    // Subscribes to the OnPlaced method when a valid collider is hit
+    private bool doorOpen = false;
+
+    public List<GameObject> breakerList;
+    public GameObject doorLid;
+
+    public GameObject stencilCutter;
+    
+    private float animationDuration = 0.3f;
+
     private void OnTriggerEnter(Collider other)
     {
         // Check if the entering object has a specific tag
         if (other.CompareTag("Blueprint"))
         {
             AnchorMagnet.OnPlaced += UpdateComponents;
+        }
+    }
+
+    // Method associated via inspector to Inner Doorlid's XR Simple Interactable - Activate
+    public void OnXRActivated()
+    {
+        if (doorOpen == false)
+        {
+            doorOpen = true;
+
+            // Rotation towards open
+            Quaternion targetRotation = Quaternion.Euler(0f, -125f, 0f);
+
+            StopAllCoroutines();
+
+            StartCoroutine(DoorAnimation(targetRotation, true));
+        }
+
+        else
+        {
+            doorOpen = false;
+
+            // Rotation towards "off" state
+            Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
+
+            StopAllCoroutines();
+
+            StartCoroutine(DoorAnimation(targetRotation, false));
+        }
+    }
+
+
+    private IEnumerator DoorAnimation(Quaternion targetRotation, bool ghostEnable)
+    {
+        Quaternion startRotation = doorLid.transform.localRotation;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < animationDuration)
+        {
+            // Increment percentage over time
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / animationDuration);
+
+            // Apply Slerp
+            doorLid.transform.localRotation = Quaternion.Slerp(startRotation, targetRotation, t);
+
+            // Wait for the next frame
+            yield return null;
+        }
+
+        // Ensure we hit the exact target rotation at the end
+        doorLid.transform.localRotation = targetRotation;
+
+        // Activate or deactivate breaker box ghosts
+        if (ghostEnable)
+        {
+            // Enable Stencil Cutter
+            stencilCutter.GetComponent<MeshRenderer>().enabled = true;
+
+            // Enable breaker slots
+            foreach (GameObject breaker in breakerList)
+            {
+                breaker.GetComponent<BoxCollider>().enabled = true;
+                breaker.GetComponent<AnchorMagnet>().enabled = true;
+            }
+        }
+
+        else
+        {
+            // Enable Stencil Cutter
+            stencilCutter.GetComponent<MeshRenderer>().enabled = false;
+
+            // Enable breaker slots
+            foreach (GameObject breaker in breakerList)
+            {
+                breaker.GetComponent<BoxCollider>().enabled = false;
+                breaker.GetComponent<AnchorMagnet>().enabled = false;
+            }
         }
     }
 
@@ -26,21 +115,9 @@ public class BreakerBoxScript : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<XRGrabInteractable>().enabled = false;
 
-        // Add a sphere collider to the breaker socket for anchoring behavior
-        GameObject breakerSocket = transform.Find("BreakerPos").gameObject;
-
-        SphereCollider breakerSocketCollider = breakerSocket.AddComponent<SphereCollider>();
-        breakerSocketCollider.isTrigger = true;
-        breakerSocketCollider.radius = 0.1f;
-
-        // Find first breaker socket and add an AnchorMagnet
-        breakerSocket.AddComponent<AnchorMagnet>();
-
         // Enable doorlid box collider and simple XR interactable for opening
-        GameObject doorlid = transform.Find("Inner Lid").gameObject;
-
-        doorlid.GetComponent<BoxCollider>().enabled = true;
-        doorlid.GetComponent<XRSimpleInteractable>().enabled = true;
+        doorLid.GetComponent<BoxCollider>().enabled = true;
+        doorLid.GetComponent<XRSimpleInteractable>().enabled = true;
 
         // Unsubscribe from future OnPlaced events
         AnchorMagnet.OnPlaced -= UpdateComponents;

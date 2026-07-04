@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 /// <summary>
 /// Handles the "Measuring" mode logic, providing height measurements and performance metrics
@@ -7,6 +8,7 @@ using TMPro;
 
 public class TapeScript : MonoBehaviour
 {
+    public static event Action OnTapeActivated;
 
     // Raycast hit point and fixture only mask
     private RaycastHit hit;
@@ -16,14 +18,11 @@ public class TapeScript : MonoBehaviour
     private TextMeshPro tapeObject;
     private LineRenderer lineRenderer;
 
-    // Get notepad text component (Note UI difference)
-    private TextMeshProUGUI notepadText;
-
     // Logic variables
     private bool tapeSelected = false;
 
     // Store String with height value
-    private string height = "";
+    public string height = "";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,8 +56,6 @@ public class TapeScript : MonoBehaviour
     {
         tapeSelected = true;
         lineRenderer.enabled = true;
-
-        notepadText = GameObject.FindWithTag("NotepadText").GetComponent<TextMeshProUGUI>();
     }
 
     // Method called upon drop, disables guiding raycast
@@ -68,10 +65,9 @@ public class TapeScript : MonoBehaviour
         lineRenderer.enabled = false;
     }
 
-    // Method called one upon trigger pull, transfers height string into notepad
-    public void TapeActivated()
+    public void OnActivated()
     {
-        notepadText.text += "\n" + height;
+        OnTapeActivated?.Invoke();
     }
 
     // Update is called once per frame
@@ -82,8 +78,6 @@ public class TapeScript : MonoBehaviour
         // Draw the red guiding raycast with start and end positions
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, transform.position + (transform.forward * 5f));
-
-        // Cleanup: Update the following logic to do the assignments only once?
 
         // Create raycast for object selection text indicator and change guiding ray color
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10f))

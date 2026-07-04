@@ -13,6 +13,9 @@ TagManager:
   - Finishes
   - Hammer
   - Blueprint
+  - Tape
+  - Notepad
+  - CableSpool
   layers:
   - Default
   - TransparentFX

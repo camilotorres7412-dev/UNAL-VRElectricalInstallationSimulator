@@ -192,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.386
+      value: 4.507
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -200,11 +200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.352
+      value: 0.448
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9963366
+      value: 0.99834585
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       propertyPath: m_LocalRotation.x
@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.08551927
+      value: -0.057493713
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       propertyPath: m_LocalRotation.z
@@ -224,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 9.812
+      value: -6.592
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -264,25 +264,28 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 549401321}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1687355801}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1643295985}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1643295987}
+      addedObject: {fileID: 1643295989}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1643295986}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1643295984}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1643295988}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1643295987}
     - targetCorrespondingSourceObject: {fileID: 4027228791024609348, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 78151750}
-    - targetCorrespondingSourceObject: {fileID: 4027228791024609348, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 78151751}
   m_SourcePrefab: {fileID: 100100000, guid: 9a9e6b0eda9f9714da1c8e16236eb4a1, type: 3}
 --- !u!1 &78151749 stripped
 GameObject:
@@ -310,18 +313,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0187007, y: 0.59446245, z: 0.73756313}
   m_Center: {x: -0.03561761, y: -0.27198848, z: 0.14810686}
---- !u!114 &78151751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78151749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4a8857658eaa944e9d5e532965a84d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ToolboxAnimation
 --- !u!1 &146051859
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +494,37 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &163666754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 163666755}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &163666755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163666754}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.857, y: 1.152, z: 0.152}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450652333658070}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &184938392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1651,7 +1673,6 @@ GameObject:
   - component: {fileID: 374086971}
   - component: {fileID: 374086970}
   - component: {fileID: 374086969}
-  - component: {fileID: 374086972}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1745,23 +1766,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &374086972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374086967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a00c312ce046c49a162fd587586071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BagButtons
-  breakerBox: {fileID: 6702116324295408092, guid: eeeb64c3153012e41ad5bb58f62dcf8f, type: 3}
-  powerSocket: {fileID: 1675132188184649106, guid: 921b03134c1626e4fa20b630ee258eb2, type: 3}
-  breakerSwitch: {fileID: 7643696640484609742, guid: 048020e0d121fa94599546f943a48f35, type: 3}
-  lightbulb: {fileID: 4790618376553776856, guid: 560c3e38a8bd037468fc88e111eab289, type: 3}
-  powerSwitch: {fileID: 8640123758831675166, guid: 3917df6a8622b914ab4f4f771275f580, type: 3}
 --- !u!1 &390718604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,13 +1849,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 374086972}
-        m_TargetAssemblyTypeName: BagButtons, Assembly-CSharp
-        m_MethodName: PowerSocketPress
-        m_Mode: 1
+      - m_Target: {fileID: 919132148416189806}
+        m_TargetAssemblyTypeName: SpawnButtons, Assembly-CSharp
+        m_MethodName: SpawnObject
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1675132188184649106, guid: 921b03134c1626e4fa20b630ee258eb2, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2014,13 +2018,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 374086972}
-        m_TargetAssemblyTypeName: BagButtons, Assembly-CSharp
-        m_MethodName: LightbulbPress
-        m_Mode: 1
+      - m_Target: {fileID: 919132148416189806}
+        m_TargetAssemblyTypeName: SpawnButtons, Assembly-CSharp
+        m_MethodName: SpawnObject
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 4790618376553776856, guid: 560c3e38a8bd037468fc88e111eab289, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2170,6 +2174,10 @@ PrefabInstance:
       value: LeftHandInteractor
       objectReference: {fileID: 0}
     - target: {fileID: 1883230248363655243, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_SelectActionTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1883230248363655243, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_AllowHoveredActivate
       value: 1
       objectReference: {fileID: 0}
@@ -2179,7 +2187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3074471628601745017, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RaycastMask.m_Bits
-      value: 2147483745
+      value: 2147483873
       objectReference: {fileID: 0}
     - target: {fileID: 3980547573437802291, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Enabled
@@ -2187,7 +2195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4053579577978487484, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_PhysicsLayerMask.m_Bits
-      value: 65
+      value: 193
       objectReference: {fileID: 0}
     - target: {fileID: 5033801203051696737, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Enabled
@@ -2195,15 +2203,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5456733348963664102, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RaycastMask.m_Bits
-      value: 2147483745
+      value: 2147483873
       objectReference: {fileID: 0}
     - target: {fileID: 6436123941575367715, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_PhysicsLayerMask.m_Bits
-      value: 65
+      value: 193
       objectReference: {fileID: 0}
     - target: {fileID: 8748500131873809389, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_TagString
       value: RightHandInteractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877177980677234388, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_SelectActionTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877177980677234388, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AllowHoveredActivate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8877177980677234388, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -2290,6 +2306,28 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &441087511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1883230248363655243, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 441087506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a07ef133a37d140a87cdf1f1c75fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &441087512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8877177980677234388, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 441087506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a07ef133a37d140a87cdf1f1c75fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &441087516 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -2555,7 +2593,6 @@ GameObject:
   - component: {fileID: 549401324}
   - component: {fileID: 549401323}
   - component: {fileID: 549401322}
-  - component: {fileID: 549401325}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2650,22 +2687,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &549401325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549401320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dcbd50ccbf220d45a849b7e08def734, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ToolboxButtons
-  cable: {fileID: 1048649485749890887, guid: 3b8b9fa30e40a3849acd99aa88a0d1e7, type: 3}
-  hammer: {fileID: 1592341775333237017, guid: b9f0b65225f63f14a84df795e91c1121, type: 3}
-  measuring_tape: {fileID: 6186019153704357654, guid: 3b98cc4bee5f4da4bab7d30adc1cb2ac, type: 3}
-  notepad: {fileID: 9132530947012784261, guid: 8c1fbfcddf62e3b44852c073a454d0a2, type: 3}
 --- !u!1 &553514300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,13 +2770,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 374086972}
+      - m_Target: {fileID: 919132148416189806}
         m_TargetAssemblyTypeName: BagButtons, Assembly-CSharp
-        m_MethodName: BreakerBoxPress
-        m_Mode: 1
+        m_MethodName: SpawnObject
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 6702116324295408092, guid: eeeb64c3153012e41ad5bb58f62dcf8f, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2821,31 +2842,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5878764731546d443b26943536f9b7d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.786
+      value: 3.123
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5878764731546d443b26943536f9b7d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5878764731546d443b26943536f9b7d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.567
+      value: -1.087
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5878764731546d443b26943536f9b7d7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.68036133
+      value: 0.69411165
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5878764731546d443b26943536f9b7d7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.6803614
+      value: -0.6941118
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5878764731546d443b26943536f9b7d7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.19263549
+      value: 0.1349405
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5878764731546d443b26943536f9b7d7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.1926356
+      value: 0.13494037
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5878764731546d443b26943536f9b7d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2857,7 +2878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5878764731546d443b26943536f9b7d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -31.618
+      value: 22.003
       objectReference: {fileID: 0}
     - target: {fileID: -7618126997804500333, guid: 5878764731546d443b26943536f9b7d7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -3370,13 +3391,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 374086972}
-        m_TargetAssemblyTypeName: BagButtons, Assembly-CSharp
-        m_MethodName: BreakerSwitchPress
-        m_Mode: 1
+      - m_Target: {fileID: 919132148416189806}
+        m_TargetAssemblyTypeName: SpawnButtons, Assembly-CSharp
+        m_MethodName: SpawnObject
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 7643696640484609742, guid: 048020e0d121fa94599546f943a48f35, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3749,13 +3770,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 549401325}
+      - m_Target: {fileID: 1643295988}
         m_TargetAssemblyTypeName: ToolboxButtons, Assembly-CSharp
-        m_MethodName: HammerPress
-        m_Mode: 1
+        m_MethodName: SpawnObject
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1592341775333237017, guid: b9f0b65225f63f14a84df795e91c1121, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4754,7 +4775,7 @@ GameObject:
   - component: {fileID: 1142761106}
   - component: {fileID: 1142761105}
   m_Layer: 5
-  m_Name: Cable Button (1)
+  m_Name: Power Switch Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4824,13 +4845,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 374086972}
-        m_TargetAssemblyTypeName: BagButtons, Assembly-CSharp
-        m_MethodName: PowerSwitchPress
-        m_Mode: 1
+      - m_Target: {fileID: 919132148416189806}
+        m_TargetAssemblyTypeName: SpawnButtons, Assembly-CSharp
+        m_MethodName: SpawnObject
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8640123758831675166, guid: 3917df6a8622b914ab4f4f771275f580, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4956,8 +4977,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1855917753}
   m_HandleRect: {fileID: 1855917752}
   m_Direction: 0
-  m_Value: -0.0000026855469
-  m_Size: 0.8148148
+  m_Value: 0
+  m_Size: 0.81481457
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5220,13 +5241,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 549401325}
+      - m_Target: {fileID: 1643295988}
         m_TargetAssemblyTypeName: ToolboxButtons, Assembly-CSharp
-        m_MethodName: NotepadPress
-        m_Mode: 1
+        m_MethodName: SpawnObject
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 9132530947012784261, guid: 8c1fbfcddf62e3b44852c073a454d0a2, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5618,16 +5639,22 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: cbc224fd288d1dc4d87b5faa3220bd43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 374086968}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: cbc224fd288d1dc4d87b5faa3220bd43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 163666755}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cbc224fd288d1dc4d87b5faa3220bd43, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1936633497}
+      addedObject: {fileID: 1936633495}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cbc224fd288d1dc4d87b5faa3220bd43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 919132148416189805}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cbc224fd288d1dc4d87b5faa3220bd43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1936633496}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cbc224fd288d1dc4d87b5faa3220bd43, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1936633495}
+      addedObject: {fileID: 919132148416189806}
   m_SourcePrefab: {fileID: 100100000, guid: cbc224fd288d1dc4d87b5faa3220bd43, type: 3}
 --- !u!1 &1459755889
 GameObject:
@@ -6014,13 +6041,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 549401325}
+      - m_Target: {fileID: 1643295988}
         m_TargetAssemblyTypeName: ToolboxButtons, Assembly-CSharp
-        m_MethodName: MeasuringTapePress
-        m_Mode: 1
+        m_MethodName: SpawnObject
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 6186019153704357654, guid: 3b98cc4bee5f4da4bab7d30adc1cb2ac, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6260,7 +6287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0006984503, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1625137802
@@ -6325,27 +6352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753f4197fc4c4514c8e5d3d1666ca4b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolboxScript
---- !u!65 &1643295985
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643295982}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.84636736, y: 0.34643167, z: 0.34455043}
-  m_Center: {x: -0.010297566, y: 0.16683957, z: -0.0049334913}
+  childUITransform: {fileID: 549401321}
 --- !u!114 &1643295986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6387,19 +6394,7 @@ MonoBehaviour:
       m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1643295984}
-        m_TargetAssemblyTypeName: ToolboxScript, Assembly-CSharp
-        m_MethodName: OnRaycastSelect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_LastSelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -6423,7 +6418,19 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1643295984}
+        m_TargetAssemblyTypeName: ToggleUIAnimator, Assembly-CSharp
+        m_MethodName: OnXRActivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -6432,7 +6439,32 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!65 &1643295987
+--- !u!114 &1643295987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643295982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a8857658eaa944e9d5e532965a84d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolboxAnimation
+--- !u!114 &1643295988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643295982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dcbd50ccbf220d45a849b7e08def734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolboxButtons
+  spawnPoint: {fileID: 1687355801}
+--- !u!65 &1643295989
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6451,8 +6483,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.84636736, y: 0.34643167, z: 0.34455043}
-  m_Center: {x: -0.010297566, y: 0.16683957, z: -0.0049334913}
+  m_Size: {x: 0.79999995, y: 0.31168658, z: 0.3486072}
+  m_Center: {x: 2.1106187e-15, y: -0.000000006191372, z: 0.176937}
 --- !u!65 &1671257388
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6474,6 +6506,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.3000002, y: 0.09999941, z: 2.2999997}
   m_Center: {x: -0.24999997, y: -2.6499999, z: 1.1499999}
+--- !u!1 &1687355800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1687355801}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1687355801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687355800}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.057493713, z: -0, w: 0.99834585}
+  m_LocalPosition: {x: -1.046, y: 0.16916001, z: 0.223}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1643295983}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1743102997
 GameObject:
   m_ObjectHideFlags: 0
@@ -7079,13 +7142,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 549401325}
+      - m_Target: {fileID: 1643295988}
         m_TargetAssemblyTypeName: ToolboxButtons, Assembly-CSharp
-        m_MethodName: CablePress
-        m_Mode: 1
+        m_MethodName: SpawnObject
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1048649485749890887, guid: 3b8b9fa30e40a3849acd99aa88a0d1e7, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7370,34 +7433,10 @@ MonoBehaviour:
       m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1936633497}
-        m_TargetAssemblyTypeName: BagScript, Assembly-CSharp
-        m_MethodName: OnRaycastSelect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_LastSelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1936633497}
-        m_TargetAssemblyTypeName: BagScript, Assembly-CSharp
-        m_MethodName: OnRaycastUnselect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -7418,7 +7457,19 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 919132148416189805}
+        m_TargetAssemblyTypeName: ToggleUIAnimator, Assembly-CSharp
+        m_MethodName: OnXRActivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -7427,18 +7478,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1936633497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148416189804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2126b7d72ef3ad244ac08700bf5632fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BagScript
 --- !u!65 &1940023951
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7800,6 +7839,52 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.1999998, y: 0.29999998, z: 2.2999997}
   m_Center: {x: 2.5, y: 0.049999975, z: 1.1499999}
+--- !u!1 &2068553269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068553271}
+  - component: {fileID: 2068553270}
+  m_Layer: 0
+  m_Name: DisableHoverActivateListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2068553270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068553269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb63fea76bc444340bfce34ed6b7961f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DisableHoverActivateListener
+  leftHand: {fileID: 441087512}
+  rightHand: {fileID: 441087511}
+--- !u!4 &2068553271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068553269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.95, y: 0.62969, z: -0.9823}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2092139007
 GameObject:
   m_ObjectHideFlags: 0
@@ -7898,6 +7983,32 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cbc224fd288d1dc4d87b5faa3220bd43, type: 3}
   m_PrefabInstance: {fileID: 1408247869}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &919132148416189805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148416189804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753f4197fc4c4514c8e5d3d1666ca4b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToggleUIAnimator
+  childUITransform: {fileID: 374086968}
+--- !u!114 &919132148416189806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148416189804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a00c312ce046c49a162fd587586071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BagButtons
+  spawnPoint: {fileID: 163666755}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7912,3 +8023,4 @@ SceneRoots:
   - {fileID: 356233236}
   - {fileID: 184938392}
   - {fileID: 846099803}
+  - {fileID: 2068553271}

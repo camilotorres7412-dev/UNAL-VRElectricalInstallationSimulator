@@ -1,24 +1,23 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEditor.MemoryProfiler;
 
 public class BreakerScript : MonoBehaviour
 {
     private bool activated = false;
     private float animationDuration = 1f;
+    [SerializeField] private Transform poleTransform;
 
-    // Get and store switch pole (child) transform
-    Transform poleTransform;
-
-    private void OnEnable()
+    void OnTriggerEnter(Collider other)
     {
-        AnchorMagnet.OnPlaced += UpdateComponents;
-
-        poleTransform = transform.Find("Breaker Switch");
+        if (other.CompareTag("Blueprint"))
+        {
+            AnchorMagnet.OnPlaced += UpdateComponents;
+        }
     }
 
-    // Method associated to XR Simple Interactable - On Select, initiates rotation animation
-    public void OnSelect()
+    public void OnXRActivated()
     {
         if (activated == false)
         {
@@ -27,7 +26,10 @@ public class BreakerScript : MonoBehaviour
             // Rotation towards "on" state
             Quaternion targetRotation = Quaternion.Euler(90f, -135f, 0f);
 
-            TriggerSlerpAnimation(targetRotation);
+            StopAllCoroutines();
+
+            // Commence animation with acquired target rotation
+            StartCoroutine(SlerpRoutine(targetRotation, true));
         }
 
         else
@@ -37,22 +39,16 @@ public class BreakerScript : MonoBehaviour
             // Rotation towards "off" state
             Quaternion targetRotation = Quaternion.Euler(90f, 0f, 0f);
 
-            TriggerSlerpAnimation(targetRotation);
+            StopAllCoroutines();
+
+            // Commence animation with acquired target rotation
+            StartCoroutine(SlerpRoutine(targetRotation, false));
 
             GetComponent<ElectricalAttributes>().powered = false;
         }
     }
 
-    public void TriggerSlerpAnimation(Quaternion targetRotation)
-    {
-        // Prevent animation overlap
-        StopAllCoroutines();
-
-        // Commence animation with acquired target rotation
-        StartCoroutine(SlerpRoutine(targetRotation));
-    }
-
-    private IEnumerator SlerpRoutine(Quaternion targetRotation)
+    private IEnumerator SlerpRoutine(Quaternion targetRotation, bool isPowered)
     {
         Quaternion startRotation = poleTransform.localRotation;
 
@@ -71,10 +67,14 @@ public class BreakerScript : MonoBehaviour
             yield return null;
         }
 
-        // Alternate power states
-        if (activated) {GetComponent<ElectricalAttributes>().powered = true;}
+        // Enable or disable power
+        GetComponent<ElectricalAttributes>().powered = isPowered;
 
-        else {GetComponent<ElectricalAttributes>().powered = false;}
+        // Enable power of immediately connected neighbors
+        foreach (GameObject connection in GetComponent<ElectricalAttributes>().connections)
+        {
+            connection.GetComponent<ElectricalAttributes>().Signal(isPowered);
+        }
 
         // Ensure we hit the exact target rotation at the end
         poleTransform.localRotation = targetRotation;
@@ -83,10 +83,13 @@ public class BreakerScript : MonoBehaviour
     // Method called once the breaker reaches its final position after magnetism
     private void UpdateComponents()
     {
-        // Disable grab behavior, physics updates and enable switch behavior instead
+        // Disable grab behavior, physics updates and enable simple interactable
         GetComponent<XRGrabInteractable>().enabled = false;
         GetComponent<XRSimpleInteractable>().enabled = true;
         GetComponent<Rigidbody>().isKinematic = true;
+
+        // Change interaction layer to Wireable for Cable Spool compatibility
+        gameObject.layer = LayerMask.NameToLayer("Wireable");
 
         // Unsubscribe from event to prevent future calls upon object placement
         AnchorMagnet.OnPlaced -= UpdateComponents;        

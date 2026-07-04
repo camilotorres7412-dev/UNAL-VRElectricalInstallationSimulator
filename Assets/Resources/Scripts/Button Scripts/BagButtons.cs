@@ -1,45 +1,33 @@
 using UnityEngine;
 
-public class BagButtons : MonoBehaviour
+public class SpawnButtons : MonoBehaviour
 {
-    //  Declaration of fixture prefabs selected in-editor
-    public GameObject breakerBox;
-    public GameObject powerSocket;
-    public GameObject breakerSwitch;
-    public GameObject lightbulb;
-    public GameObject powerSwitch;
+    // Reference to spawn point selected in editor
+    public Transform spawnPoint;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Called by item spawning buttons when they are pressed
+    // The spawnTarget parameter is passed via Inspector in each button's function call
+    public void SpawnObject(GameObject spawnTarget)
     {
-    }
+        GameObject spawnedObject = Instantiate(spawnTarget, spawnPoint.position, Quaternion.identity);
 
-    public void BreakerBoxPress()
-    {
-        GameObject spawnedObject = Instantiate(breakerBox, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
+        // If no object with this name can be found on the scene, name it as the "first" 
+        if (GameObject.Find(spawnedObject.GetComponent<ObjectAttributes>().displayName) == null)
+        {
+            spawnedObject.name = spawnedObject.GetComponent<ObjectAttributes>().displayName + " 1";
+        }
 
-        spawnedObject.name = "Gabinete 1";
-    }
-    public void PowerSocketPress()
-    {
-        Instantiate(powerSocket, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
-    }
-    public void BreakerSwitchPress()
-    {
-        Instantiate(breakerSwitch, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
-    }
-    public void LightbulbPress()
-    {
-        Instantiate(lightbulb, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
-    }
-        public void PowerSwitchPress()
-    {
-        Instantiate(powerSwitch, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
-    }
+        else
+        {
+            int nameCounter = 2;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            // Increment name counter for every valid object with the same name found on the scene
+            while (GameObject.Find(spawnedObject.GetComponent<ObjectAttributes>().displayName + nameCounter) != null)
+            {
+                nameCounter += 1;
+            }
+
+            spawnedObject.name = spawnedObject.GetComponent<ObjectAttributes>().displayName + nameCounter;
+        }
     }
 }

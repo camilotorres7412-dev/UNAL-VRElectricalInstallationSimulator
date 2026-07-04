@@ -93,7 +93,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7997621770924213625}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sample Text
+  m_text: "Sin Selecci\xF3n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -272,6 +272,9 @@ PrefabInstance:
       addedObject: {fileID: 6486220505999827635}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c08e334751a5974e8b0a256c085c131, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 273984598533395605}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c08e334751a5974e8b0a256c085c131, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 7793073034613350969}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c08e334751a5974e8b0a256c085c131, type: 3}
       insertIndex: -1
@@ -335,6 +338,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.39284575, y: 0.21398462, z: 0.04678342}
   m_Center: {x: -0.08942646, y: 0.000007722529, z: -0.00025239313}
+--- !u!135 &273984598533395605
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048649485749890887}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 447
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.05
+  m_Center: {x: 0.09, y: 0.000007722529, z: -0.00025239313}
 --- !u!114 &7793073034613350969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,6 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2111a6c46b19f4d902c969c794284c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textIndicator: {fileID: 1546095375950536993}
 --- !u!4 &6614128755537955962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2772247079907434900, guid: 5c08e334751a5974e8b0a256c085c131, type: 3}

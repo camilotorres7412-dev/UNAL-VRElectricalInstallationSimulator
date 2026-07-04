@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 /// <summary>
 /// Spawns tools or warps exsiting tools back to the toolbox
@@ -6,47 +7,22 @@ using UnityEngine;
 
 public class ToolboxButtons : MonoBehaviour
 {
-    // Enables selecting the tool prefabs in-editor
-    public GameObject cable;
-    public GameObject hammer;
-    public GameObject measuring_tape;
-    public GameObject notepad;
+    // Reference to spawn point selected in editor
+    public Transform spawnPoint;
 
-    // Actual in-game gameobjects
-    private GameObject cableInstance;
-    private GameObject hammerInstance;
-    private GameObject measuring_tapeInstance;
-    private GameObject notepadInstance;
-
-    // Various methods for spawning the different tools
-    public void CablePress()
+    public void SpawnObject(GameObject spawnTarget)
     {
-        Instantiate(cable, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
-    }
-    public void HammerPress()
-    {
-        if (hammerInstance is null)
+        // Check if there is already an existing tool with the same tag
+        // If there isn't, instantiate it
+        if (GameObject.FindWithTag(spawnTarget.tag) == null)
         {
-            hammerInstance = Instantiate(hammer, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
+            Instantiate(spawnTarget, spawnPoint.position, Quaternion.identity);
         }
 
+        // If there is, warp it back to spawn
         else
         {
-            hammerInstance.transform.position = new Vector3(4.329f,1.172f,0.525f);
+            GameObject.FindWithTag(spawnTarget.tag).transform.position = spawnPoint.position;
         }
-    }
-    public void MeasuringTapePress()
-    {
-        Instantiate(measuring_tape, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
-    }
-    public void NotepadPress()
-    {
-        Instantiate(notepad, new Vector3(4.329f,1.172f,0.525f), Quaternion.identity);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

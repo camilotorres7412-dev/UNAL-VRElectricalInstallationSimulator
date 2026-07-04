@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 173fa29165619014aa7fa995189f2052, type: 2}
     - target: {fileID: -6435399192587130656, guid: 08a47da475c0f0e4f93a7b3ca67e220a, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -5188007396262839858, guid: 08a47da475c0f0e4f93a7b3ca67e220a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 08a47da475c0f0e4f93a7b3ca67e220a, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 08a47da475c0f0e4f93a7b3ca67e220a, type: 3}
       propertyPath: m_TagString
@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e7b18056764f2d1468ae31d893167869, type: 2}
     - target: {fileID: 8332250156639417550, guid: 08a47da475c0f0e4f93a7b3ca67e220a, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8655729838105959809, guid: 08a47da475c0f0e4f93a7b3ca67e220a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 173fa29165619014aa7fa995189f2052, type: 2}
     - target: {fileID: 9065136288850963967, guid: 08a47da475c0f0e4f93a7b3ca67e220a, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -101,10 +101,10 @@ PrefabInstance:
       addedObject: {fileID: 7770078586891124222}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 08a47da475c0f0e4f93a7b3ca67e220a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8778538818903182971}
+      addedObject: {fileID: 5062060201726780821}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 08a47da475c0f0e4f93a7b3ca67e220a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5062060201726780821}
+      addedObject: {fileID: 8778538818903182971}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 08a47da475c0f0e4f93a7b3ca67e220a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2283896301997625933}
@@ -141,6 +141,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &5062060201726780821
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675132188184649106}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1443931, y: 0.09032738, z: 0.05663671}
+  m_Center: {x: 0, y: 0, z: -0.027029527}
 --- !u!114 &8778538818903182971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,27 +315,6 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
---- !u!65 &5062060201726780821
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675132188184649106}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1443931, y: 0.09032738, z: 0.05663671}
-  m_Center: {x: 0, y: 0, z: -0.027029527}
 --- !u!114 &2283896301997625933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,8 +327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e81a50750e24db43aea74118434f1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixture: 1
-  measureH: 0
-  measureV: 1
-  anchorID: Socket
-  identifier: Socket
+  displayName: Tomacorriente
+  AnchorID: Blueprint
+  blueprintInstance: {fileID: 919132149155446097, guid: 08a47da475c0f0e4f93a7b3ca67e220a, type: 3}

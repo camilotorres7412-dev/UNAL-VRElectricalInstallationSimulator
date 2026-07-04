@@ -57,8 +57,6 @@ public class SwitchScript : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
 
             TriggerSlerpAnimation(targetRotation);
-
-            GetComponent<ElectricalAttributes>().powered = false;
         }
     }
 
@@ -90,23 +88,17 @@ public class SwitchScript : MonoBehaviour
             yield return null;
         }
 
-        // Check if input wire is powered then power, otherwise keep unpowered
-        if (activated && GetComponent<ElectricalAttributes>().wireIn != null)
-        {
-            GameObject inputFixture = GetComponent<ElectricalAttributes>().wireIn;
+        // Ensure we hit the exact target rotation at the end
+        poleTransform.localRotation = targetRotation;
 
-            if (inputFixture.GetComponent<ElectricalAttributes>().powered == true)
-            {
-                GetComponent<ElectricalAttributes>().powered = true;
-            }
+        // Check if input wire is powered then power, otherwise keep unpowered
+        if (activated)
+        {
         }
 
         else 
         {
             GetComponent<ElectricalAttributes>().powered = false;
         }
-
-        // Ensure we hit the exact target rotation at the end
-        poleTransform.localRotation = targetRotation;
     }
 }

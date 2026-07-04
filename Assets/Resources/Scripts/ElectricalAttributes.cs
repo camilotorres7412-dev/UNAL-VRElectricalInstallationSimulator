@@ -1,11 +1,16 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System;
 
 public class ElectricalAttributes : MonoBehaviour
 {
-    // Store connection status
-    public GameObject wireIn;
-    public GameObject wireOut;
-
+    public static event Action OnElectricalUpdate;
+    public List<GameObject> connections;
     public int Amperage;
     public bool powered = false;
+
+    public void Signal(bool isPowered)
+    {
+        powered = isPowered;
+    }
 }
