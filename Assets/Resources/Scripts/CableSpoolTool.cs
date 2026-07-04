@@ -9,12 +9,14 @@ using System.Collections.Generic;
 
 public class CableSpoolTool : MonoBehaviour
 {
-    public TextMeshPro textIndicator;
+    [SerializeField] private TextMeshPro textIndicator;
+
+    [SerializeField] private ElectricalManager electricalManager;
+
     private int gauge = 12;
 
     GameObject selectedObject;
     GameObject sourceObject;
-    GameObject targetObject;
 
     private int selectionStatus = 0;
 
@@ -86,23 +88,13 @@ public class CableSpoolTool : MonoBehaviour
             case 1:
                 if (selectedObject != null)
                 {
-                    targetObject = selectedObject;
+                    textIndicator.text  = "Conexión exitosa entre " + sourceObject.name + "y " + targetObject.name;
 
-                    textIndicator.text  = "Conexión exitosa desde " + sourceObject.name + "hacia " + targetObject.name;
-
-                    List<GameObject> sourceConnections = sourceObject.GetComponent<ElectricalAttributes>().connections;
-                    List<GameObject> targetConnections = targetObject.GetComponent<ElectricalAttributes>().connections;
-
-                    sourceConnections.Add(targetObject);
-                    targetConnections.Add(sourceObject);
+                    ElectricalManager.Instance.AddConnection(sourceObject, selectedObject, gauge, false);
 
                     sourceObject.GetComponent<Collider>().enabled = true;
 
-
-                    Debug.Log("Got here!");
-
                     sourceObject = null;
-                    targetObject = null;
 
                     selectionStatus = 0;
                 }

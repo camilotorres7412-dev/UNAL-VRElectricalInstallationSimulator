@@ -1,13 +1,21 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using UnityEditor.MemoryProfiler;
+using System.Collections.Generic;
+
+[RequireComponent(typeof(ElectricalAttributes))]
 
 public class BreakerScript : MonoBehaviour
 {
     private bool activated = false;
     private float animationDuration = 1f;
     [SerializeField] private Transform poleTransform;
+    private ElectricalAttributes selfElectricalAttributes;
+
+    void Start()
+    {
+        selfElectricalAttributes = GetComponent<ElectricalAttributes>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -43,8 +51,6 @@ public class BreakerScript : MonoBehaviour
 
             // Commence animation with acquired target rotation
             StartCoroutine(SlerpRoutine(targetRotation, false));
-
-            GetComponent<ElectricalAttributes>().powered = false;
         }
     }
 
@@ -67,14 +73,11 @@ public class BreakerScript : MonoBehaviour
             yield return null;
         }
 
-        // Enable or disable power
-        GetComponent<ElectricalAttributes>().powered = isPowered;
+        // Toggle power state for local device
+        selfElectricalAttributes.devicePower = isPowered;
 
-        // Enable power of immediately connected neighbors
-        foreach (GameObject connection in GetComponent<ElectricalAttributes>().connections)
-        {
-            connection.GetComponent<ElectricalAttributes>().Signal(isPowered);
-        }
+        // Toggle power state for connection
+        ElectricalManager.Instance.ToggleConnectionPower(gameObject, isPowered);
 
         // Ensure we hit the exact target rotation at the end
         poleTransform.localRotation = targetRotation;

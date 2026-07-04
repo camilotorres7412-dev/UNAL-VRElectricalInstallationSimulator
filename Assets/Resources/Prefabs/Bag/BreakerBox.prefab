@@ -703,8 +703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d356c4940cc7a0d45bd27ee921382e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElectricalAttributes
-  Amperage: 0
-  powered: 0
+  connections: []
+  devicePower: 0
 --- !u!114 &1179252066987244545
 MonoBehaviour:
   m_ObjectHideFlags: 0

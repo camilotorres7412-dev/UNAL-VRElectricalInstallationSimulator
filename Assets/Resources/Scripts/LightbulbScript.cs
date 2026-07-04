@@ -31,7 +31,7 @@ public class LightBulbScript : MonoBehaviour
 
     void Update()
     {
-        if (GetComponent<ElectricalAttributes>().powered == true)
+        if (GetComponent<ElectricalAttributes>().devicePower == true)
         {
             GetComponent<Light>().enabled = true;
 

@@ -16,10 +16,16 @@ public class AnchorMagnet : MonoBehaviour
     private float animationDuration = 1f;
     private GameObject incomingFixture;
 
+    private Collider incomingCollider;
+
     // Collider filter defined in "HammerScript". Only reacts to "Fixture" layer objects
     private void OnTriggerEnter(Collider other)
     {
         incomingFixture = other.gameObject;
+
+        incomingCollider = other;
+
+        incomingCollider.enabled = false;
 
         ObjectAttributes incomingAttributes = incomingFixture.GetComponent<ObjectAttributes>();
 
@@ -77,6 +83,8 @@ public class AnchorMagnet : MonoBehaviour
         // Ensure exact target rotation and position at the end
         incomingFixture.transform.position = targetPosition;
         incomingFixture.transform.rotation = targetRotation;
+
+        incomingCollider.enabled = true;
 
         // Invoke component update method on fixture object
         OnPlaced?.Invoke();

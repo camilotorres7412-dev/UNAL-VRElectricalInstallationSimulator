@@ -7,25 +7,18 @@ public class SwitchScript : MonoBehaviour
     private bool activated = false;
     private float animationDuration = 1f;
 
-    // Get and store switch pole (child) transform
-    Transform poleTransform;
+    [SerializeField] Transform poleTransform;
 
-    // Subscribe to event on enable
-    private void OnEnable()
+    void OnTriggerEnter(Collider other)
     {
-        AnchorMagnet.OnPlaced += UpdateSwitchComponents;
-
-        poleTransform = transform.Find("SwitchPole");
-    }
-
-    // Unsubscribe to event on disable or destruction
-    private void OnDisable()
-    {
-        AnchorMagnet.OnPlaced -= UpdateSwitchComponents;
+        if (other.CompareTag("Blueprint"))
+        {
+            AnchorMagnet.OnPlaced += UpdateComponents;
+        }
     }
 
     // Method called as soon as anchoring process is finished
-    public void UpdateSwitchComponents()
+    public void UpdateComponents()
     {
         // Disable grab behavior, physics updates and enable switch behavior instead
         GetComponent<XRGrabInteractable>().enabled = false;
@@ -33,7 +26,7 @@ public class SwitchScript : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = true;
 
         // Unsubscribe from event to prevent future calls upon object placement
-        AnchorMagnet.OnPlaced -= UpdateSwitchComponents; 
+        AnchorMagnet.OnPlaced -= UpdateComponents; 
     }
 
     // Method associated to XR Simple Interactable - On Select, initiates rotation animation
@@ -46,7 +39,11 @@ public class SwitchScript : MonoBehaviour
             // Rotation towards "on" state
             Quaternion targetRotation = Quaternion.Euler(4f, 0f, 0f);
 
-            TriggerSlerpAnimation(targetRotation);
+            // Prevent animation overlap
+            StopAllCoroutines();
+
+            // Commence animation with acquired target rotation
+            StartCoroutine(SlerpRoutine(targetRotation, true));
         }
 
         else
@@ -56,20 +53,15 @@ public class SwitchScript : MonoBehaviour
             // Rotation towards "off" state
             Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
 
-            TriggerSlerpAnimation(targetRotation);
+            // Prevent animation overlap
+            StopAllCoroutines();
+
+            // Commence animation with acquired target rotation
+            StartCoroutine(SlerpRoutine(targetRotation, false));
         }
     }
 
-    public void TriggerSlerpAnimation(Quaternion targetRotation)
-    {
-        // Prevent animation overlap
-        StopAllCoroutines();
-
-        // Commence animation with acquired target rotation
-        StartCoroutine(SlerpRoutine(targetRotation));
-    }
-
-    private IEnumerator SlerpRoutine(Quaternion targetRotation)
+    private IEnumerator SlerpRoutine(Quaternion targetRotation, bool isPowered)
     {
         Quaternion startRotation = poleTransform.localRotation;
 
@@ -88,17 +80,10 @@ public class SwitchScript : MonoBehaviour
             yield return null;
         }
 
+        // Toggle device power
+        GetComponent<ElectricalAttributes>().devicePower = isPowered;
+
         // Ensure we hit the exact target rotation at the end
         poleTransform.localRotation = targetRotation;
-
-        // Check if input wire is powered then power, otherwise keep unpowered
-        if (activated)
-        {
-        }
-
-        else 
-        {
-            GetComponent<ElectricalAttributes>().powered = false;
-        }
     }
 }
