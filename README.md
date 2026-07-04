@@ -13,7 +13,7 @@
 
 ## 🎥 Preview
 
-![Simulator gameplay](docs/media/preview.png)
+![Simulator Preview](docs/media/preview.png)
 
 ---
 
@@ -101,8 +101,8 @@ All rights not explicitly granted by the license are reserved by the author. See
 **Juan Camilo Torres Arboleda**
 Systems Engineering — Universidad Nacional de Colombia - Sede Medellín
 
-- LinkedIn: [LINKEDIN_URL](https://www.linkedin.com/in/juan-camilo-torres-arboleda-11b359286/)
-- Email: [YOUR_EMAIL](mailto:camilotorres7412@gmail.com)
+- Find my LinkedIn [Here](https://www.linkedin.com/in/juan-camilo-torres-arboleda-11b359286/)
+- Contact me via [Email](mailto:camilotorres7412@gmail.com)
 
 ---
 
