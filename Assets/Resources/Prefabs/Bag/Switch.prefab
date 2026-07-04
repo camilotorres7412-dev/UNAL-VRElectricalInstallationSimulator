@@ -117,6 +117,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 645626833334385973}
   m_SourcePrefab: {fileID: 100100000, guid: 8a050b2f27a15034780f2bab8f502d4e, type: 3}
+--- !u!4 &2443527032236074319 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6543640074253303552, guid: 8a050b2f27a15034780f2bab8f502d4e, type: 3}
+  m_PrefabInstance: {fileID: 8873933059039042127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3700687711511724213 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5223595868326812410, guid: 8a050b2f27a15034780f2bab8f502d4e, type: 3}
@@ -414,9 +419,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d356c4940cc7a0d45bd27ee921382e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections: []
-  Amperage: 0
-  powered: 0
+  devicePower: 0
+  electricPower: 0
+  cableTargets: []
+  voltageLine: 0
+  voltageCapacity: 0
+  voltageLoad: 0
 --- !u!114 &7461166441336733083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1b76f8215ba644db7a6d9c615b947d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poleTransform: {fileID: 2443527032236074319}
 --- !u!114 &7346562476719019073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,19 +500,7 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7461166441336733083}
-        m_TargetAssemblyTypeName: SwitchScript, Assembly-CSharp
-        m_MethodName: OnSelect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -521,7 +518,19 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7461166441336733083}
+        m_TargetAssemblyTypeName: SwitchScript, Assembly-CSharp
+        m_MethodName: OnSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []

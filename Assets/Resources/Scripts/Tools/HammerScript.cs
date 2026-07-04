@@ -75,6 +75,9 @@ public class HammerScript : MonoBehaviour
         heightLine = transform.Find("HeightIndicator").GetComponent<LineRenderer>();
         heightIndicator = transform.Find("HeightIndicator").GetComponent<TextMeshPro>();
 
+        // Subscribe to function call on object placement to update tool status
+        AnchorMagnet.OnPlaced += UpdateStatus;
+
         meshFilter = gameObject.GetComponent<MeshFilter>();
     }
 
@@ -111,7 +114,7 @@ public class HammerScript : MonoBehaviour
     // Destroys orphaned blueprint clone, if one existed at the time of destruction
     public void OnDisable()
     {
-        if(blueprintClone is not null) {Destroy(blueprintClone);}
+        if(blueprintClone != null) {Destroy(blueprintClone);}
     }
 
     // Called upon activation trigger pull
@@ -147,6 +150,7 @@ public class HammerScript : MonoBehaviour
                         blueprintCollider.enabled = false;
                         blueprintCollider.isTrigger = true;
                         blueprintCollider.includeLayers = blueprintColliderMask;
+                        blueprintCollider.excludeLayers = ~blueprintColliderMask;
 
                         AnchorMagnet anchorScript = blueprintClone.AddComponent<AnchorMagnet>();
                         anchorScript.enabled = false;
@@ -169,7 +173,6 @@ public class HammerScript : MonoBehaviour
             // Second button press
             // Disable blueprint position updates, disable guides and enable collider
             case 1:
-
                 blueprintClone.GetComponent<SphereCollider>().enabled = true;
                 blueprintClone.GetComponent<AnchorMagnet>().enabled = true;
 
@@ -196,11 +199,8 @@ public class HammerScript : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5f, layerMask))
         {
-            // Update the object's position to the hit point
-            blueprintClone.transform.position = hit.point;
-
-            // Update the object's rotation to look at the normal
-            blueprintClone.transform.rotation = Quaternion.LookRotation(hit.normal, Vector3.up);
+            // Update the object's position and rotation to look at the normal
+            blueprintClone.transform.SetPositionAndRotation(hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
 
             // Get wireframe clone's lowest point in y for height reference
             Vector3 measurePoint = meshFilter.sharedMesh.bounds.min; 
@@ -213,6 +213,12 @@ public class HammerScript : MonoBehaviour
             // Update content of the Text object
             heightIndicator.text = measurePoint.y.ToString("0.00") + "m";
         }
+    }
+
+    // Called when an anchored object finishes placing. Updates tool status to zero
+    public void UpdateStatus()
+    {
+        selectionStatus = 0;
     }
 
     void Update()

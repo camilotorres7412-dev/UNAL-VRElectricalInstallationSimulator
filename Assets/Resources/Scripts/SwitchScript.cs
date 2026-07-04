@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.iOS;
 
 public class SwitchScript : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class SwitchScript : MonoBehaviour
         GetComponent<XRGrabInteractable>().enabled = false;
         GetComponent<XRSimpleInteractable>().enabled = true;
         GetComponent<Rigidbody>().isKinematic = true;
+
+        // Change interaction layer to Wireable for Cable Spool compatibility
+        gameObject.layer = LayerMask.NameToLayer("Wireable");
 
         // Unsubscribe from event to prevent future calls upon object placement
         AnchorMagnet.OnPlaced -= UpdateComponents; 
@@ -82,6 +86,16 @@ public class SwitchScript : MonoBehaviour
 
         // Toggle device power
         GetComponent<ElectricalAttributes>().devicePower = isPowered;
+
+        if (GetComponent<ElectricalAttributes>().devicePower == true)
+        {
+            GetComponent<ElectricalAttributes>().PowerBulbs(true);
+        }
+
+        else
+        {
+            GetComponent<ElectricalAttributes>().PowerBulbs(false);
+        }
 
         // Ensure we hit the exact target rotation at the end
         poleTransform.localRotation = targetRotation;

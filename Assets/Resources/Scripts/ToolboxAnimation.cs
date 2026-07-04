@@ -1,52 +1,60 @@
-using Unity.Mathematics;
+using System.Collections;
 using UnityEngine;
+
+/// <summary>
+/// Handles the opening animation of the toolbox' lid. Layer filters added via inspector
+/// </summary>
 
 public class ToolboxAnimation : MonoBehaviour
 {
-    private bool play;
+    [SerializeField] private Transform lidTransform;
 
-    private Quaternion rest;
+    private readonly float animationDuration = 1f;
 
-    private Quaternion start;
-
-    private float timeCount = 0.0f;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnTriggerEnter() 
     {
-        rest = transform.rotation;
+        // Rotation towards "open" state
+        Quaternion targetRotation = Quaternion.Euler(-200f, 0f, 0f);
+
+        // Prevent animation overlap
+        StopAllCoroutines();
+
+        // Commence animation with acquired target rotation
+        StartCoroutine(SlerpRoutine(targetRotation));
     }
 
-    void OnTriggerEnter(Collider other) 
+    void OnTriggerExit()
     {
-        Debug.Log("Entered animation zone: " + other.gameObject.name);
-        start = transform.rotation;
-        timeCount = 0.0f;
-        play = true;
+        // Rotation towards "off" state
+        Quaternion targetRotation = Quaternion.Euler(-90f, 0f, 0f);
+
+        // Prevent animation overlap
+        StopAllCoroutines();
+
+        // Commence animation with acquired target rotation
+        StartCoroutine(SlerpRoutine(targetRotation));
     }
 
-    void OnTriggerExit(Collider other) 
+    public IEnumerator SlerpRoutine(Quaternion targetRotation)
     {
-        Debug.Log("Entered animation zone: " + other.gameObject.name);
-        start = transform.rotation;
-        timeCount = 0.0f;
-        play = false;
-    }
+        Quaternion startRotation = lidTransform.localRotation;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(play)
+        float elapsedTime = 0f;
+
+        while (elapsedTime < animationDuration)
         {
-            // Spherically interpolate between start and target rotation
-            transform.rotation = Quaternion.Slerp(start, start * Quaternion.Euler(-100f,0f,0f), timeCount);
-            timeCount = timeCount + Time.deltaTime;
+            // Increment percentage over time
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / animationDuration);
+
+            // Apply Slerp
+            lidTransform.localRotation = Quaternion.Slerp(startRotation, targetRotation, t);
+
+            // Wait for the next frame
+            yield return null;
         }
 
-        else
-        {
-            transform.rotation = Quaternion.Slerp(start, rest, timeCount);
-            timeCount = timeCount + Time.deltaTime;
-        }
+        // Ensure we hit the exact target rotation at the end
+        lidTransform.localRotation = targetRotation;
     }
 }

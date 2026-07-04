@@ -18,6 +18,8 @@ public class TapeScript : MonoBehaviour
     private TextMeshPro tapeObject;
     private LineRenderer lineRenderer;
 
+    private LayerMask layerMask;
+
     // Logic variables
     private bool tapeSelected = false;
 
@@ -27,6 +29,8 @@ public class TapeScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        layerMask = LayerMask.GetMask("Wireable");
+
         // Add a LineRenderer component
         lineRenderer = gameObject.AddComponent<LineRenderer>();
 
@@ -75,35 +79,31 @@ public class TapeScript : MonoBehaviour
     {
         if (tapeSelected)
         {
-        // Draw the red guiding raycast with start and end positions
-        lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, transform.position + (transform.forward * 5f));
+            // Draw the red guiding raycast with start and end positions
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, transform.position + (transform.forward * 5f));
 
-        // Create raycast for object selection text indicator and change guiding ray color
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10f))
+            // Create raycast for object selection text indicator and change guiding ray color
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10f, layerMask))
             {
-                // Check if the hit object is a fixture
-                if (hit.transform.CompareTag("Fixture"))
-                {
-                    // Update the color of the guiding raycast while a valid object is hit
-                    lineRenderer.startColor = Color.green;
-                    lineRenderer.endColor = Color.green;
+                // Update the color of the guiding raycast while a valid object is hit
+                lineRenderer.startColor = Color.green;
+                lineRenderer.endColor = Color.green;
 
-                    // Calculate height of hit gameObject, approximate to 2 decimal units and add unit indicator
-                    height = "Altura " + hit.collider.gameObject.name + " :" + hit.collider.gameObject.transform.position.y.ToString("0.00") + "m";
+                // Calculate height of hit gameObject, approximate to 2 decimal units and add unit indicator
+                height = "Altura " + hit.collider.gameObject.name + " :" + hit.collider.gameObject.transform.position.y.ToString("0.00") + "m";
 
-                    // Update content of the Text object
-                    tapeObject.text = height;
-                }
-                
-                else
-                {
-                    // Reset guiding raycast color and text when no valid object is found
-                    lineRenderer.startColor = Color.red;
-                    lineRenderer.endColor = Color.red;
-                    height = "";
-                    tapeObject.text = height;
-                }
+                // Update content of the Text object
+                tapeObject.text = height;
+            }
+
+            else
+            {
+                // Reset guiding raycast color and text when no valid object is found
+                lineRenderer.startColor = Color.red;
+                lineRenderer.endColor = Color.red;
+                height = "";
+                tapeObject.text = height;
             }
         }
     }

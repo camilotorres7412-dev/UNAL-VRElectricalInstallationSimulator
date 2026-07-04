@@ -88,21 +88,27 @@ public class BreakerBoxScript : MonoBehaviour
             // Enable breaker slots
             foreach (GameObject breaker in breakerList)
             {
+                if (breaker != null)
+                {
                 breaker.GetComponent<BoxCollider>().enabled = true;
                 breaker.GetComponent<AnchorMagnet>().enabled = true;
+                }
             }
         }
 
         else
         {
-            // Enable Stencil Cutter
+            // Disable Stencil Cutter
             stencilCutter.GetComponent<MeshRenderer>().enabled = false;
 
-            // Enable breaker slots
+            // Disable breaker slots
             foreach (GameObject breaker in breakerList)
             {
-                breaker.GetComponent<BoxCollider>().enabled = false;
-                breaker.GetComponent<AnchorMagnet>().enabled = false;
+                if (breaker != null)
+                {
+                    breaker.GetComponent<BoxCollider>().enabled = false;
+                    breaker.GetComponent<AnchorMagnet>().enabled = false;
+                }
             }
         }
     }

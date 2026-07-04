@@ -76,8 +76,13 @@ public class BreakerScript : MonoBehaviour
         // Toggle power state for local device
         selfElectricalAttributes.devicePower = isPowered;
 
-        // Toggle power state for connection
-        ElectricalManager.Instance.ToggleConnectionPower(gameObject, isPowered);
+        // Toggle electrical energy state for this breaker
+        selfElectricalAttributes.electricPower = isPowered;
+
+        // Toggle energy state for all neighbors
+        selfElectricalAttributes.PowerAllNeighbors(isPowered);
+
+        selfElectricalAttributes.PowerBulbs(isPowered);
 
         // Ensure we hit the exact target rotation at the end
         poleTransform.localRotation = targetRotation;

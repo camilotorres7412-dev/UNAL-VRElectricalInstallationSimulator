@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a434e0f16817a1a4295a8988900b0557, type: 2}
     - target: {fileID: -1679595386742890045, guid: 0dc36b19914285f4e84a663bca00c9e6, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -109354097342555461, guid: 0dc36b19914285f4e84a663bca00c9e6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0dc36b19914285f4e84a663bca00c9e6, type: 3}
       propertyPath: m_TagString
-      value: Fixture
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -450,8 +450,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d356c4940cc7a0d45bd27ee921382e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElectricalAttributes
-  Amperage: 0
-  powered: 0
+  devicePower: 0
+  connnectionTable: []
+  voltageLine: 120
+  voltageCapacity: 2000
+  voltageLoad: 0
 --- !u!114 &4162308515541000632
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class NotepadScript : MonoBehaviour
     {
         string height = GameObject.FindWithTag("Tape").GetComponent<TapeScript>().height;
 
-        if (height is not "")
+        if (height != "")
         {
             notepadText.text += "\n" + height;
         }

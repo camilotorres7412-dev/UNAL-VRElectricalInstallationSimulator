@@ -314,9 +314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d356c4940cc7a0d45bd27ee921382e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElectricalAttributes
-  connections: []
-  Amperage: 0
-  powered: 0
+  devicePower: 0
+  electricPower: 0
+  cableTargets: []
+  voltageLine: 0
+  voltageCapacity: 0
+  voltageLoad: 0
 --- !u!108 &344627864905560797
 Light:
   m_ObjectHideFlags: 0
@@ -330,8 +333,8 @@ Light:
   m_Color: {r: 1, g: 0.66444063, b: 0, a: 1}
   m_Intensity: 5
   m_Range: 10
-  m_SpotAngle: 144.99402
-  m_InnerSpotAngle: 21.80208
+  m_SpotAngle: 179
+  m_InnerSpotAngle: 55.808067
   m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 0

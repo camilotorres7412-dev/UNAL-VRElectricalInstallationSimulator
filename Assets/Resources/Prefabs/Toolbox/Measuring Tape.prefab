@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 499485557319572499}
   - component: {fileID: 5443917358422857270}
   - component: {fileID: 9027304453930614317}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Selection Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,9 +241,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: a3a5c7c003a0d0040af7456982e8a79c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: a3a5c7c003a0d0040af7456982e8a79c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -1018664272722485354, guid: a3a5c7c003a0d0040af7456982e8a79c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 635547659545568360, guid: a3a5c7c003a0d0040af7456982e8a79c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3a5c7c003a0d0040af7456982e8a79c, type: 3}
       propertyPath: m_Name
       value: Measuring Tape
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3a5c7c003a0d0040af7456982e8a79c, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3a5c7c003a0d0040af7456982e8a79c, type: 3}
       propertyPath: m_TagString

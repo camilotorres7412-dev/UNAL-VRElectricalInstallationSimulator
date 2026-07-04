@@ -11,18 +11,13 @@ public class ToggleUIAnimator : MonoBehaviour
 
     private bool activateUI = false;
 
-    void OnTriggerEnter(Collider other) 
-    {
-        Destroy(other.gameObject);
-    }
-
     // Activation method associated via inspector
     public void OnXRActivate()
     {
         // Enable toggle-like behavior on each call
         if (activateUI == false) {activateUI = true;}
 
-        else {activateUI = true;}
+        else {activateUI = false;}
     }
 
     private IEnumerator ScaleUIRoutine(Vector3 targetScale)

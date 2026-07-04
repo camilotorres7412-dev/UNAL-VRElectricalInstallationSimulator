@@ -28,18 +28,4 @@ public class LightBulbScript : MonoBehaviour
         // Unsubscribe from future OnPlaced events
         AnchorMagnet.OnPlaced -= UpdateComponents;
     }
-
-    void Update()
-    {
-        if (GetComponent<ElectricalAttributes>().devicePower == true)
-        {
-            GetComponent<Light>().enabled = true;
-
-        }
-
-        else
-        {
-            GetComponent<Light>().enabled = false;
-        }
-    }
 }
