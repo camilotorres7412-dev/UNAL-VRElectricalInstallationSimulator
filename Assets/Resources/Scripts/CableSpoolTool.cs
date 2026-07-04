@@ -85,26 +85,15 @@ public class CableSpoolTool : MonoBehaviour
             {
                 // Selection of source object
                 case 0:
-                    // Activate logic only if a fixture is hit
-                    if (hit.collider.transform.CompareTag("Fixture"))
-                    {
                         sourceObject = hit.collider.gameObject;
                         lineRenderer.startColor = Color.yellow;
                         lineRenderer.endColor = Color.yellow;
                         selectionStatus = 1;
-                    }
-
                     break;
 
                 // Selection of target object & apply logic
                 case 1:
-                    if (hit.collider.transform.CompareTag("Fixture"))
-                    {
                         targetObject = hit.collider.gameObject;
-                    }
-                    
-                    else {break;}
-
                     // 
                     sourceObject.GetComponent<ElectricalAttributes>().wireOut = targetObject;
                     targetObject.GetComponent<ElectricalAttributes>().wireIn = sourceObject;

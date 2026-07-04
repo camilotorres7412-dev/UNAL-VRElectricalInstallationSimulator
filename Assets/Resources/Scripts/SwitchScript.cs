@@ -91,7 +91,7 @@ public class SwitchScript : MonoBehaviour
         }
 
         // Check if input wire is powered then power, otherwise keep unpowered
-        if (activated)
+        if (activated && GetComponent<ElectricalAttributes>().wireIn != null)
         {
             GameObject inputFixture = GetComponent<ElectricalAttributes>().wireIn;
 

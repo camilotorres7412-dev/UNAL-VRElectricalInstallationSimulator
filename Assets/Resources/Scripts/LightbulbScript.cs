@@ -35,6 +35,7 @@ public class LightBulbScript : MonoBehaviour
             GetComponent<Light>().enabled = true;
 
         }
+
         else
         {
             GetComponent<Light>().enabled = false;
