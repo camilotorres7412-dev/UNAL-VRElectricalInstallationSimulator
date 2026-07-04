@@ -10,7 +10,6 @@ public class TapeScript : MonoBehaviour
 
     // Raycast hit point and fixture only mask
     private RaycastHit hit;
-    private LayerMask layerMask;
 
     // Objects for selection indicator text
     private GameObject textObject;

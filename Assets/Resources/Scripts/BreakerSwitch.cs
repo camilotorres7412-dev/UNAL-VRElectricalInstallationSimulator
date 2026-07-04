@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class BreakerSwitch : MonoBehaviour, IFixturePlacer
+public class BreakerSwitch : MonoBehaviour
 {
     private bool enableUpdate = false;
 

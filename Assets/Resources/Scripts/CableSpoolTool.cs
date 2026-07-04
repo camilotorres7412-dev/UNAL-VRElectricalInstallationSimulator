@@ -1,6 +1,5 @@
-using Unity.XR.CoreUtils;
 using UnityEngine;
-using UnityEngine.UIElements;
+using TMPro;
 
 /// <summary>
 /// Enables connection and disconnection of electric terminals on fixtures
@@ -9,21 +8,18 @@ using UnityEngine.UIElements;
 public class CableSpoolTool : MonoBehaviour
 {
 
-    // Store a ray and RaycastHit for object detection
-    private Ray ray;
+    // Raycast hit point and fixture only mask
     private RaycastHit hit;
 
-    // Store layermask to avoid unwanted interactions
-    LayerMask layerMask;
+    // Objects for selection indicator text
+    private GameObject textObject;
+    private TextMeshPro tapeObject;
+    private LineRenderer lineRenderer;
 
-    // Store Line Renderer for guidance
-    LineRenderer lineRenderer;
+    // Logic variable for update call control
+    private bool spoolSelected = false;
 
-    // Store a boolean for update() call control
-    private bool updateEnabled;
-
-    // Store instance of Grab Point child
-    GameObject attachPoint;
+    // Store instance of Grab Point child for raycasting
     Transform grabPoint;
 
     // Store source and target gameobjects
@@ -33,46 +29,54 @@ public class CableSpoolTool : MonoBehaviour
     // Store selection process status
     private int selectionStatus = 0;
 
-    void Start()
+    public void CreateLineRenderer()
     {
-        attachPoint = gameObject.transform.GetChild(0).gameObject;
-        grabPoint = attachPoint.transform;
-        layerMask = LayerMask.GetMask("Wireable");
-
-        // Create a line renderer for guidance
-        lineRenderer = attachPoint.AddComponent<LineRenderer>();
+            // Add a LineRenderer component
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
 
         // Set the material
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
 
         // Set the color
-        lineRenderer.material.color = Color.red;
+        lineRenderer.startColor = Color.red;
+        lineRenderer.endColor = Color.red;
 
         // Set the width
-        lineRenderer.startWidth = 0.001f;
-        lineRenderer.endWidth = 0.001f;
+        lineRenderer.startWidth = 0.01f;
+        lineRenderer.endWidth = 0.01f;
 
         // Set the number of vertices
         lineRenderer.positionCount = 2;
-
-        // Disable upon start
-        lineRenderer.enabled = false;
-
-        updateEnabled = false;
     }
 
-    // Method called once upon picking up the spool. Creates a guiding LineRenderer and enables update
-    public void SpoolHeld()
+    void Start()
     {
-        // Enable guiding ray
-        lineRenderer.enabled = true;
+        CreateLineRenderer();
 
-        // Enable Update for continous raycasting
-        updateEnabled = true;
+        // Get Grab Point for Raycast casting
+        grabPoint = gameObject.transform.GetChild(0);
+
+        // Get the display text component
+        textObject = transform.GetChild(2).gameObject;
+
+        // Get the tape's text mesh pro component
+        tapeObject = textObject.GetComponent<TextMeshPro>();
+    }
+
+    public void OnSelect()
+    {
+        spoolSelected = true;
+        lineRenderer.enabled = true;
+    }
+
+    public void OnUnselect()
+    {
+        spoolSelected = false;
+        lineRenderer.enabled = false;
     }
 
     // Method called once with every trigger pull, selects the highlighted object and enables connection logic
-    public void SpoolActivated()
+    public void OnActivated()
     {
         // Cast selection ray
         if (Physics.Raycast(grabPoint.position, grabPoint.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
@@ -81,8 +85,8 @@ public class CableSpoolTool : MonoBehaviour
             {
                 // Selection of source object
                 case 0:
-                    // Activate logic only if a gameobject is hit
-                    if (hit.collider.gameObject != null)
+                    // Activate logic only if a fixture is hit
+                    if (hit.collider.transform.CompareTag("Fixture"))
                     {
                         sourceObject = hit.collider.gameObject;
                         lineRenderer.material.color = Color.yellow;
@@ -93,7 +97,12 @@ public class CableSpoolTool : MonoBehaviour
 
                 // Selection of target object & apply logic
                 case 1:
-                    targetObject = hit.collider.gameObject;
+                    if (hit.collider.transform.CompareTag("Fixture"))
+                    {
+                        targetObject = hit.collider.gameObject;
+                    }
+                    
+                    else {break;}
 
                     // 
                     sourceObject.GetComponent<ElectricalAttributes>().wireOut = targetObject;
@@ -123,32 +132,36 @@ public class CableSpoolTool : MonoBehaviour
         }
     }
 
-    // Method called once when the trigger stops being held.
-    public void SpoolDropped()
-    {
-        lineRenderer.enabled = false;
-        updateEnabled = false;
-    }
-
-    // Called for as long as the tool is being held
-
     void Update()
     {
-        if (updateEnabled == true)
+        if (spoolSelected)
         {
-            if (Physics.Raycast(grabPoint.position, grabPoint.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-            {
-                // If hit, draw line from origin to hit point
-                lineRenderer.SetPosition(0, grabPoint.position);
-                lineRenderer.SetPosition(1, hit.point);
-            }
-        }
+        // Draw the red guiding raycast with start and end positions
+        lineRenderer.SetPosition(0, grabPoint.transform.position);
+        lineRenderer.SetPosition(1, grabPoint.transform.position + (grabPoint.transform.forward * 5f));
 
-        else
-        {
-            // If no hit, draw line from origin to max distance in ray direction
-            lineRenderer.SetPosition(0, grabPoint.position);
-            lineRenderer.SetPosition(1, grabPoint.position * 10);
+        // Create raycast for object selection text indicator and change guiding ray color
+        if (Physics.Raycast(grabPoint.transform.position, grabPoint.transform.TransformDirection(Vector3.forward), out hit, 10f))
+            {
+                // Check if the hit object is a fixture
+                if (hit.transform.CompareTag("Fixture"))
+                {
+                    // Update the color of the guiding raycast while a valid object is hit
+                    lineRenderer.startColor = Color.green;
+                    lineRenderer.endColor = Color.green;
+
+                    // Update content of the Text object
+                    tapeObject.text = "Seleccionando: " + hit.collider.gameObject.name;
+                }
+                
+                else
+                {
+                    // Reset guiding raycast color and text when no valid object is found
+                    lineRenderer.startColor = Color.red;
+                    lineRenderer.endColor = Color.red;
+                    tapeObject.text = "Sin selección";
+                }
+            }
         }
     }
 }

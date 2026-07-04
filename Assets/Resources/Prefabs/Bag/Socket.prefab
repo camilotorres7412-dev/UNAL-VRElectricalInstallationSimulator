@@ -330,4 +330,5 @@ MonoBehaviour:
   fixture: 1
   measureH: 0
   measureV: 1
+  anchorID: Socket
   identifier: Socket

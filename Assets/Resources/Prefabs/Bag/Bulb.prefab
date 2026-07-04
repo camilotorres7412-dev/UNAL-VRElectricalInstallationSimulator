@@ -301,7 +301,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixture: 1
   measureH: 0
-  measureV: 1
+  measureV: 0
+  anchorID: Bulb
   identifier: Bulb
 --- !u!114 &1007680090210312894
 MonoBehaviour:

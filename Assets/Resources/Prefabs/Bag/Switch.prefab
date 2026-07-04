@@ -441,4 +441,5 @@ MonoBehaviour:
   fixture: 1
   measureH: 0
   measureV: 1
+  anchorID: Switch
   identifier: Switch
