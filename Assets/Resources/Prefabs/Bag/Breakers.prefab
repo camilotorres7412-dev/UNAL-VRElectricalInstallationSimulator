@@ -88,6 +88,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 73c6f046bd57e9e48bb3085dba95a3f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 305597677942668414}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 73c6f046bd57e9e48bb3085dba95a3f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2270524937274572822}
   m_SourcePrefab: {fileID: 100100000, guid: 73c6f046bd57e9e48bb3085dba95a3f2, type: 3}
 --- !u!1 &5338659790015473137 stripped
 GameObject:
@@ -281,3 +284,16 @@ MonoBehaviour:
   measureH: 0
   measureV: 0
   identifier: Breakers
+--- !u!114 &-2270524937274572822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5338659790015473137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53a5a0d3634fb14ebc478b816b71a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BreakerHandler
+  playerHandler: {fileID: 0}

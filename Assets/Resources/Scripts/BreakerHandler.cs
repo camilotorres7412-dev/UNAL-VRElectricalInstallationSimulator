@@ -7,10 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 /// </summary>
 
 public class BreakerHandler : MonoBehaviour, IFixturePlacer
-{
-    // Get an instance of of PlayerHandler Class
-    public PlayerHandler playerHandler;
-    
+{   
     // Method called as soon as anchoring process is finished
     public void OnPlaced()
     {
@@ -28,5 +25,7 @@ public class BreakerHandler : MonoBehaviour, IFixturePlacer
 
         // Find first breaker socket and add an AnchorMagnet
         breakerSocket.AddComponent<AnchorMagnet>();
+
+        // 
     }
 }

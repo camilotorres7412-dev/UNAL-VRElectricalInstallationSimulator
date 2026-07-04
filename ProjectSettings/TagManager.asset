@@ -10,6 +10,7 @@ TagManager:
   - LeftHandInteractor
   - Fixture
   - NotepadText
+  - Finishes
   layers:
   - Default
   - TransparentFX
